@@ -264,7 +264,7 @@ header nav .login_btn:hover{
 /*  Search Section  */
 .search{
     width: 100%;
-    height: 100px;
+    height: 30px;
     background: #bfd9f2;
     position: relative;
 }
@@ -990,7 +990,7 @@ footer .copyrights a.ph_link{
         border-bottom: 1px solid #82abd4;
     }
 }
-/*.modal {
+.modal {
     // color:#000;
 }
 .modal .reg, .modal .log {
@@ -1025,4 +1025,4 @@ footer .copyrights a.ph_link{
     border-radius: 2px;
     width: 60px;
     height: 25px;
-}*/
+}
