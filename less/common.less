@@ -1,5 +1,7 @@
 /*  header Section  */
 header{
+    position: absolute;
+    top: 0;
     width: 100%;
     height: 100px;
     background: rgba(28, 54, 85, .2);
@@ -71,11 +73,21 @@ header{
     width: 100%;
     height: 800px;
     position: relative;
-    background: url('../img/hero.jpg') no-repeat bottom center;
+    // background: url('../img/hero.jpg') no-repeat bottom center;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
+    img {
+        width: 100%;
+        height: 800px!important;
+        // position: relative;
+        // background: url('../img/hero.jpg') no-repeat bottom center;
+        // background-size: cover;
+        // -webkit-background-size: cover;
+        // -moz-background-size: cover;
+        // -o-background-size: cover;
+    }
     .caption{
         width: 100%;
         position: absolute;
@@ -91,13 +103,13 @@ header{
             position: relative;
             display: block;
         }
-        h3{
-            color: #fff;
-            font-family: "lato-regular", Helvetica, Arial, sans-serif;
-            font-size: 14px;
-            margin: -15px 0 0 25px;
-            left: 1px;
-        }
+    }
+    h3{
+        color: #fff;
+        font-family: "lato-regular", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        margin: -15px 0 0 25px;
+        left: 1px;
     }
 }
 
@@ -322,12 +334,12 @@ footer{
         p {
             line-height: 40px;
         }
-        i {
-            cursor: pointer;
-            &:before {
-                font-size: 12px;
-            }
-        }
+        // i {
+        //     cursor: pointer;
+        //     &:before {
+        //         font-size: 12px;
+        //     }
+        // }
     }
 }
 /*  Modal Section  */
