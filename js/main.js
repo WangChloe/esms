@@ -19,7 +19,7 @@ $(document).ready(function(){
 
 	// });
 	$('#carousel').carousel({
-	 interval: 2000
+	 interval: 3000
 	});
 	$('.login').on("click", function(e){
 		e.preventDefault();
