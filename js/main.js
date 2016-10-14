@@ -18,7 +18,9 @@ $(document).ready(function(){
 	// 	}
 
 	// });
-
+	$('.carousel').carousel({
+	 interval: 3000
+	});
 	$('.login').on("click", function(e){
 		e.preventDefault();
 		var ads_box =$('.log');		
