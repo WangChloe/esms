@@ -332,7 +332,7 @@ footer{
         //     text-decoration: none;
         // }
         p {
-            line-height: 40px;
+            line-height: 25px;
         }
         // i {
         //     cursor: pointer;
@@ -343,9 +343,10 @@ footer{
     }
 }
 /*  Modal Section  */
-.modal {
-    > div {
-        z-index: 10;
+.modall {
+    // display: block;
+    // .log {
+        z-index: 999;
         background: rgba(28, 54, 85, 0.5);
         position: absolute;
         padding: 20px;
@@ -369,7 +370,7 @@ footer{
                 border: 0;
             }
         }
-        button {
+        .i-btn {
             display: block;
             margin-bottom: 40px;
             background: #fff;
@@ -378,14 +379,20 @@ footer{
             border-radius: 2px;
             width: 60px;
             height: 25px;
+            line-height: 25px;
+            text-indent: 0;
             &:hover {
                 opacity: .8;
             }
         }
-        button, a {
+        a {
             cursor: pointer;
+            &:hover {
+                color: #fff;
+            }
+
         }
-    }
+    // }
 }
 
 /*  Responsive CSS */

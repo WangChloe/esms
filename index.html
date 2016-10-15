@@ -15,12 +15,11 @@
 	<script src="js/jquery.js"></script>
 	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<!-- <link rel="stylesheet" href="css/responsive.css"> -->
-
+	<!-- <link rel="stylesheet" href="js/carousel.js"> -->
 	<script src="js/main.js"></script>
 </head>
 <body>
 	<section id="carousel" class="carousel slide hero">
-		<!-- <div id="carousel" class="carousel slide"> -->
 			<ol class="carousel-indicators">
 				<li class="active" data-slide-to="0" data-target="#carousel"></li>
 				<li data-slide-to="1" data-target="#carousel"></li>
@@ -191,7 +190,7 @@
 						</h2>
 					</div>
 				</li>
-				<li>
+				<!-- <li>
 					<a href="#">
 						<img src="img/property_1.jpg" alt="" title="" class="property_img"/>
 					</a>
@@ -280,7 +279,7 @@
 							<span class="property_size">(288ftsq)</span>
 						</h2>
 					</div>
-				</li>
+				</li> -->
 			</ul>
 			<div class="more_listing">
 				<a href="#" class="more_listing_btn">View More Listings</a>
@@ -377,36 +376,42 @@
 			</ul>
 		</div>
 
-		<div class="copyrights wrapper">Copyright © 2016 上海师范大学  袋U快递代理系统项目组
+		<div class="copyrights wrapper">
 			<p>本站所用图片来源：@阿亮学长 <a href="http://weibo.com/u/2248032692" target="_blank"><i class="icon-weibo"></i></a></p>
+			Copyright © 2016 上海师范大学  袋U快递代理系统项目组
 		</div>
 	</footer>
 	<!--  end footer  -->
-	<div class="modal">
-		<div class="reg hide">
-			<input type="text" id="name" placeholder="姓名">
-			<input type="text" id="dorm" placeholder="宿舍楼">
-			<input type="text" id="mobile" placeholder="手机号">
-			<input type="text" id="pwd" placeholder="密码">
-			<button onclick="">注册</button>
+	<div class="modall reg h">
+		<form action="http://localhost:8080/esms/user/register.do">
+			<input type="text" id="user.name" name="user.name" placeholder="姓名">	
+			<input type="text" id="user.userNo" name="user.userNo" placeholder="学号">	
+			<input type="text" id="user.dorm" name="user.dorm" placeholder="宿舍楼">	
+			<input type="text" id="user.mobile" name="user.mobile" placeholder="手机号">	
+			<input type="password" id="user.pwd" name="user.pwd" placeholder="密码">	
+			<input type="submit" class="i-btn" value="注册">	
 			<a class="login">已有账户？立即登录 &gt;</a>
-		</div>
-		<div class="log hide">
-			<input type="text" id="mobile" placeholder="手机号">
-			<input type="text" id="pwd" placeholder="密码">
-			<button onclick="">登录</button>
+		</form>
+	</div>
+	<div class="modall log h">
+		<form action="http://localhost:8080/esms/user/login.do">
+			<input type="text" id="user.mobile" name="user.mobile" placeholder="手机号">	
+			<input type="password" id="user.pwd" name="user.pwd" placeholder="密码">	
+			<input type="submit" class="i-btn" value="登录">	
 			<a class="register">还没有账户？立即注册 &gt;</a>
-		</div>
-		<div class="est hide">
-			<input type="text" id="name" placeholder="姓名">
-			<input type="text" id="dorm" placeholder="宿舍楼">
-			<input type="text" id="mobile" placeholder="手机号">
-			<input type="text" id="com" placeholder="快递公司">
-			<input type="text" id="pwd" placeholder="期望金额">
-			<input type="text" id="time" placeholder="取货时间">
-			<input type="text" id="time" placeholder="送货时间">
-			<button onclick="">下单</button>
-		</div>
+		</form>
+	</div>
+	<div class="modall est h">
+		<form action="http://localhost:8080/esms/orderBase/establish.do">
+			<input type="text" id="orderBase.id" name="orderBase.id" placeholder="收件人ID">	
+			<input type="text" id="orderBase.inc" name="orderBase.inc" placeholder="快递公司">	
+			<input type="text" id="orderBase.typ" name="orderBase.typ" placeholder="快递种类">	
+			<input type="text" id="orderBase.price" name="orderBase.price"  placeholder="期望金额">	
+			<input type="text" id="orderBase.tTime" name="orderBase.tTime" placeholder="代领时间">	
+			<input type="text" id="orderBase.sTime" name="orderBase.sTime" placeholder="送货时间">	
+			<input type="text" id="orderBase.notes" name="orderBase.notes" placeholder="备注信息">	
+			<input type="submit" class="i-btn" value="下单">
+		</form>
 	</div>
 </body>
 </html>
