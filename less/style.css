@@ -217,10 +217,10 @@ select {
 .clearfix {
   *zoom: 1;
 }
-.hide {
+.h {
   display: none;
 }
-.show {
+.s {
   display: block;
 }
 /*  Fonts  */
@@ -557,11 +557,11 @@ footer .copyrights {
   border-top: 1px solid #82abd4;
 }
 footer .copyrights p {
-  line-height: 40px;
+  line-height: 25px;
 }
 /*  Modal Section  */
-.modal > div {
-  z-index: 10;
+.modall {
+  z-index: 999;
   background: rgba(28, 54, 85, 0.5);
   position: absolute;
   padding: 20px;
@@ -574,7 +574,7 @@ footer .copyrights p {
   border-radius: 3px;
   box-shadow: 2px 2px 20px 0 #FFF;
 }
-.modal > div input {
+.modall input {
   margin-bottom: 20px;
   width: 200px;
   height: 28px;
@@ -583,10 +583,10 @@ footer .copyrights p {
   opacity: .5;
   border: 2px solid #6f849b;
 }
-.modal > div input:focus {
+.modall input:focus {
   border: 0;
 }
-.modal > div button {
+.modall .i-btn {
   display: block;
   margin-bottom: 40px;
   background: #fff;
@@ -595,13 +595,17 @@ footer .copyrights p {
   border-radius: 2px;
   width: 60px;
   height: 25px;
+  line-height: 25px;
+  text-indent: 0;
 }
-.modal > div button:hover {
+.modall .i-btn:hover {
   opacity: .8;
 }
-.modal > div button,
-.modal > div a {
+.modall a {
   cursor: pointer;
+}
+.modall a:hover {
+  color: #fff;
 }
 /*  Responsive CSS */
 @media (max-width: 1500px) {
