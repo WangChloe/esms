@@ -40,7 +40,12 @@ module.exports = function(grunt) {
                 //     dest: 'dist' //输出到此目录下
                 // }]
                 [
-                    {dest:'static/dist/js/lib.js',src:'static/frame/*.js'},
+                    {dest:'static/dist/js/lib.js',src:[
+                            'static/frame/js/angular.min.js',
+                            'static/frame/js/angular-ui-router.min.js',
+                            'static/frame/js/jquery.js',
+                            'static/frame/js/bootstrap.min.js'
+                            ]},
                     {dest:'static/dist/js/esms.min.js',src:'static/dist/js/<%= pkg.name %>.js'}
                 ]
             }

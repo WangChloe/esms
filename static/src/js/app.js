@@ -1,4 +1,4 @@
-var esmsApp = angular.module("esmsApp", [
+var esmsApp = angular.module('esmsApp', [
 	// 外部库模块
 	'ui.router'
 
@@ -19,25 +19,25 @@ var esmsApp = angular.module("esmsApp", [
 
 esmsApp.config(function($stateProvider, $urlRouterProvider) {
 
-	$urlRouterProvider.ohterwise('/');
+	$urlRouterProvider.ohterwise('/index');
 	$stateProvider
-		.state('index2', {
-			url: '/',
+		.state('index', {
+			url: '/index',
 			views: {
 				'': {
-					templateUrl: '../index2.html'
+					templateUrl: '../view/index.html'
 				},
 				'header@index': {
-					templateUrl: '../header.html'
+					templateUrl: '../view/header.html'
 				},
 				'content@index': {
-					templateUrl: '../content.html'
-				}
+					templateUrl: '../view/content.html'
+				},
 				'footer@index': {
-					templateUrl: '../footer.html'
-				}
+					templateUrl: '../view/footer.html'
+				},
 				'modal@index': {
-					templateUrl: '../modal.html'
+					templateUrl: '../view/modal.html'
 				}
 
 			}
