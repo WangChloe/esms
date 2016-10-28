@@ -1,0 +1,24 @@
+{
+  "name": "esms",
+  "version": "1.0.0",
+  "description": "Express Substitute Management System",
+  "main": "GruntFile.js",
+  "dependencies": {
+    "angular": "^1.2.27",
+    "angular-ui-router": "^0.2.15"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WangChloe/esms.git"
+  },
+  "author": "WangChloe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WangChloe/esms/issues"
+  },
+  "homepage": "https://github.com/WangChloe/esms#readme"
+}
