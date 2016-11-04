@@ -1,7 +1,7 @@
 var esmsApp = angular.module('esmsApp', [
 	// 外部库模块
 	'ui.router'
-
+	
 	// 页面template, 自己写的公共模块、ui模块
     // 'mainTemplates', 'common', 'ui', 'zbModalModule', 'configModule',...
 
