@@ -19,7 +19,7 @@ var esmsApp = angular.module('esmsApp', [
 
 esmsApp.config(function($stateProvider, $urlRouterProvider) {
 
-	$urlRouterProvider.ohterwise('/index');
+	$urlRouterProvider.otherwise('/index');
 	$stateProvider
 		.state('index', {
 			url: '/index',
