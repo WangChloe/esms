@@ -22,7 +22,7 @@ $(document).ready(function(){
 	$('#header').load('header.html');
 	$('#content').load('content.html');
 	$('#footer').load('footer.html');
-	// $('#modal').load('modal.html');
+	$('#modal').load('modal.html');
 
 	$('.carousel').carousel({
 	 interval: 3000
