@@ -18,42 +18,51 @@ $(document).ready(function(){
 	// 	}
 
 	// });
+	console.log(">>>");
+	$('#header').load('header.html');
+	$('#content').load('content.html');
+	$('#footer').load('footer.html');
+	// $('#modal').load('modal.html');
+
 	$('.carousel').carousel({
 	 interval: 3000
 	});
-	$('.login').on("click", function(e){
-		e.preventDefault();
-		var ads_box =$('.log');		
-		if(!ads_box.hasClass('h')){
-			ads_box.stop().fadeIn(200).addClass('h');
-		}else{
-			$('.reg').addClass('h');
-			$('.est').addClass('h');
-			ads_box.stop().fadeOut(200).removeClass('h');
-		}
-	});
 
-	$('.register').on("click", function(e){
-		e.preventDefault();
-		var ads_box =$('.reg');		
-		if(!ads_box.hasClass('h')){
-			ads_box.stop().fadeIn(200).addClass('h');
-		}else{
-			$('.log').addClass('h');
-			$('.est').addClass('h');
-			ads_box.stop().fadeOut(200).removeClass('h');
-		}
-	});
+	
+	// $('.login').on("click", function(e){
+	// 	console.log(111);
+	// 	e.preventDefault();
+	// 	var ads_box =$('.log');
+	// 	if(ads_box.hasClass('h')){
+	// 		ads_box.stop().fadeIn(200).addClass('h');
+	// 	}else{
+	// 		$('.reg').addClass('h');
+	// 		$('.est').addClass('h');
+	// 		ads_box.stop().fadeOut(200).removeClass('h');
+	// 	}
+	// });
 
-	$('.establish').on("click", function(e){
-		e.preventDefault();
-		var ads_box =$('.est');		
-		if(!ads_box.hasClass('h')){
-			ads_box.stop().fadeIn(200).addClass('h');
-		}else{
-			$('.log').addClass('h');
-			$('.reg').addClass('h');
-			ads_box.stop().fadeOut(200).removeClass('h');
-		}
-	});
+	// $('.register').on("click", function(e){
+	// 	e.preventDefault();
+	// 	var ads_box =$('.reg');		
+	// 	if(!ads_box.hasClass('h')){
+	// 		ads_box.stop().fadeIn(200).addClass('h');
+	// 	}else{
+	// 		$('.log').addClass('h');
+	// 		$('.est').addClass('h');
+	// 		ads_box.stop().fadeOut(200).removeClass('h');
+	// 	}
+	// });
+
+	// $('.establish').on("click", function(e){
+	// 	e.preventDefault();
+	// 	var ads_box =$('.est');		
+	// 	if(!ads_box.hasClass('h')){
+	// 		ads_box.stop().fadeIn(200).addClass('h');
+	// 	}else{
+	// 		$('.log').addClass('h');
+	// 		$('.reg').addClass('h');
+	// 		ads_box.stop().fadeOut(200).removeClass('h');
+	// 	}
+	// });
 });
