@@ -33,6 +33,14 @@ $(document).ready(function(){
 		}
 	});
 
+	$('.mod-login').on("click", function(){
+		console.log(111);
+		$.get("http://localhost:8080/esms/user/login.do",
+		function(data,status){
+    		cosole.log(222);
+  });
+	});
+
 	$('.register').on("click", function(e){
 		e.preventDefault();
 		var ads_box =$('.reg');		
