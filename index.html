@@ -192,96 +192,6 @@
 						</h2>
 					</div>
 				</li>
-				<!-- <li>
-					<a href="javascript:;">
-						<img src="img/property_1.jpg" alt="" title="" class="property_img"/>
-					</a>
-					<span class="price">￥25</span>
-					<div class="property_details">
-						<h1>
-							<a href="javascript:;">Fuisque dictum tortor at purus libero</a>
-						</h1>
-						<h2>
-							2 kitchens, 2 bed, 2 bath...
-							<span class="property_size">(288ftsq)</span>
-						</h2>
-					</div>
-				</li>
-				<li>
-					<a href="javascript:;">
-						<img src="img/property_2.jpg" alt="" title="" class="property_img"/>
-					</a>
-					<span class="price">￥10</span>
-					<div class="property_details">
-						<h1>
-							<a href="javascript:;">Fuisque dictum tortor at purus libero</a>
-						</h1>
-						<h2>
-							2 kitchens, 2 bed, 2 bath...
-							<span class="property_size">(288ftsq)</span>
-						</h2>
-					</div>
-				</li>
-				<li>
-					<a href="javascript:;">
-						<img src="img/property_3.jpg" alt="" title="" class="property_img"/>
-					</a>
-					<span class="price">￥5</span>
-					<div class="property_details">
-						<h1>
-							<a href="javascript:;">Fuisque dictum tortor at purus libero</a>
-						</h1>
-						<h2>
-							2 kitchens, 2 bed, 2 bath...
-							<span class="property_size">(288ftsq)</span>
-						</h2>
-					</div>
-				</li>
-				<li>
-					<a href="javascript:;">
-						<img src="img/property_1.jpg" alt="" title="" class="property_img"/>
-					</a>
-					<span class="price">￥25</span>
-					<div class="property_details">
-						<h1>
-							<a href="javascript:;">Fuisque dictum tortor at purus libero</a>
-						</h1>
-						<h2>
-							2 kitchens, 2 bed, 2 bath...
-							<span class="property_size">(288ftsq)</span>
-						</h2>
-					</div>
-				</li>
-				<li>
-					<a href="javascript:;">
-						<img src="img/property_2.jpg" alt="" title="" class="property_img"/>
-					</a>
-					<span class="price">￥10</span>
-					<div class="property_details">
-						<h1>
-							<a href="javascript:;">Fuisque dictum tortor at purus libero</a>
-						</h1>
-						<h2>
-							2 kitchens, 2 bed, 2 bath...
-							<span class="property_size">(288ftsq)</span>
-						</h2>
-					</div>
-				</li>
-				<li>
-					<a href="javascript:;">
-						<img src="img/property_3.jpg" alt="" title="" class="property_img"/>
-					</a>
-					<span class="price">￥5</span>
-					<div class="property_details">
-						<h1>
-							<a href="javascript:;">Fuisque dictum tortor at purus libero</a>
-						</h1>
-						<h2>
-							2 kitchens, 2 bed, 2 bath...
-							<span class="property_size">(288ftsq)</span>
-						</h2>
-					</div>
-				</li> -->
 			</ul>
 			<div class="more_listing">
 				<a href="javascript:;" class="more_listing_btn">View More Listings</a>
@@ -385,8 +295,8 @@
 	</footer>
 	<!--  end footer  -->
 	<div class="modall reg h">
-		<!-- <form action="http://localhost:8080/esms/user/register.do"> -->
-		<form>
+		<form action="user/register.do">
+		<!-- <form> -->
 			<input type="text" id="user.name" name="user.name" placeholder="姓名">	
 			<input type="text" id="user.userNo" name="user.userNo" placeholder="学号">	
 			<input type="text" id="user.dorm" name="user.dorm" placeholder="宿舍楼">	
@@ -397,17 +307,16 @@
 		</form>
 	</div>
 	<div class="modall log h">
-		<!-- <form action="http://localhost:8080/esms/user/login.do"> -->
+		<!-- <form action="user/login.do"> -->
 		<form>
 			<input type="text" id="user.mobile" name="user.mobile" placeholder="手机号">	
 			<input type="password" id="user.pwd" name="user.pwd" placeholder="密码">	
-			<input type="submit" class="i-btn mod-login" value="登录">	
+			<button class="i-btn mod-login" onclick="getData()">登录</button>	
 			<a class="register">还没有账户？立即注册 &gt;</a>
 		</form>
 	</div>
 	<div class="modall est h">
-		<!-- <form action="http://localhost:8080/esms/orderBase/establish.do"> -->
-		<form>
+		<form action="establish.do">
 			<input type="text" id="orderBase.id" name="orderBase.id" placeholder="收件人ID">	
 			<input type="text" id="orderBase.inc" name="orderBase.inc" placeholder="快递公司">	
 			<input type="text" id="orderBase.typ" name="orderBase.typ" placeholder="快递种类">	

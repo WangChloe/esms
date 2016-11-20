@@ -32,14 +32,27 @@ $(document).ready(function(){
 			ads_box.stop().fadeOut(200).removeClass('h');
 		}
 	});
+	// http://localhost:8080/esms/user/login.do
 
-	$('.mod-login').on("click", function(){
-		console.log(111);
-		$.get("http://localhost:8080/esms/user/login.do",
-		function(data,status){
-    		cosole.log(222);
-  });
-	});
+	// $('.mod-login').on("click", function(){
+	// 	$.ajax({
+	// 		url: "user/login.do",
+	// 		type: "get",
+	// 		dataType: "json",
+	// 		data: {
+
+	// 		},
+	// 		success: function(data) {
+	// 			console.log("success...");
+
+	// 			//调用创建表和填充动态填充数据的方法.  
+	// 			// createShowingTable(data)
+	// 		},
+	// 		error: function() {
+	// 			console.log("error...");
+	// 		}
+	// 	});
+	// });
 
 	$('.register').on("click", function(e){
 		e.preventDefault();
@@ -65,3 +78,23 @@ $(document).ready(function(){
 		}
 	});
 });
+
+function getData() {
+		$.ajax({
+			url: "./user/login.do",
+			type: "get",
+			dataType: "json",
+			data: {
+
+			},
+			success: function(data) {
+				alert("success...");
+
+				//调用创建表和填充动态填充数据的方法.  
+				// createShowingTable(data)
+			},
+			error: function() {
+				alert("error...");
+			}
+		});
+	}
