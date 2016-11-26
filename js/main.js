@@ -1,4 +1,43 @@
-$(document).ready(function(){
+var loginVerify = {
+    login: function () {
+            if (this.check()) {
+                this.LoginSuccess();
+            }
+        },
+        check: function () {
+
+            if ($("#user-mobile").val() == "") {
+                alert("手机号不能为空");
+                $("#user-mobile").focus();
+                return false;
+            }
+            if ($("#user-pwd").val() == "") {
+                alert("密码不能为空")
+                $("#user-pwd").focus();
+                return false;
+            }
+            return true;
+        },
+        LoginSuccess: function () {
+            $.ajax({
+                type: "GET",
+                url: "http://localhost:8080/esms/user/login.do?user.mobile=" + $("#user-mobile").val() + "&user.pwd=" + $("#user-pwd").val(),
+                success: function (data) {
+                        console.log(data.msg);
+						$('nav').find('a.login_btn').remove().end().append($("#user-mobile").val());
+                    },
+                    error: function () {
+                        console.log('错误');
+                    }
+            });
+        }
+}
+
+$(document).ready(function () {
+            $(".mod-login").click(function () {
+                loginVerify.login();
+            });
+	
 	/*  Hamburger Menu & Icon  */
 	// $('.hamburger').on('click', function(e){		
 	// 	e.preventDefault();
@@ -18,6 +57,11 @@ $(document).ready(function(){
 	// 	}
 
 	// });
+	
+	
+	
+	
+	
 	$('.carousel').carousel({
 	 interval: 3000
 	});
@@ -32,14 +76,11 @@ $(document).ready(function(){
 			ads_box.stop().fadeOut(200).removeClass('h');
 		}
 	});
+	// http://localhost:8080/esms/user/login.do
 
-	$('.mod-login').on("click", function(){
-		console.log(111);
-		$.get("http://localhost:8080/esms/user/login.do",
-		function(data,status){
-    		cosole.log(222);
-  });
-	});
+//	$('.mod-login').on("click", function(){
+//
+//	});
 
 	$('.register').on("click", function(e){
 		e.preventDefault();
