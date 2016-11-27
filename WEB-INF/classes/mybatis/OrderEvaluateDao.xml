@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.plan.a.es.dao.OrderEvaluateDao">
+
+	<select id="findAll" resultType="com.plan.a.es.entity.OrderEvaluate">
+	<![CDATA[
+		select id, order_id as orderId, owner, target, message, score, crt, upt
+		from order_evaluate
+	]]>
+	</select>
+
+	<select id="findById" resultType="com.plan.a.es.entity.OrderEvaluate">
+	<![CDATA[
+		select id, order_id as orderId, owner, target, message, score, crt, upt
+		from order_evaluate
+		where id=#{id}
+	]]>
+	</select>
+
+	<select id="findByOrderId" resultType="com.plan.a.es.entity.OrderEvaluate">
+	<![CDATA[
+		select id, order_id as orderId, owner, target, message, score, crt, upt
+		from order_evaluate
+		where order_id=#{orderId}
+	]]>
+	</select>
+
+	<select id="findByOwner" resultType="com.plan.a.es.entity.OrderEvaluate">
+	<![CDATA[
+		select id, order_id as orderId, owner, target, message, score, crt, upt
+		from order_evaluate
+		where owner=#{owner}
+	]]>
+	</select>
+
+	<select id="findByTarget" resultType="com.plan.a.es.entity.OrderEvaluate">
+	<![CDATA[
+		select id, order_id as orderId, owner, target, message, score, crt, upt
+		from order_evaluate
+		where target=#{target}
+	]]>
+	</select>
+
+	<insert id="save" useGeneratedKeys="true" keyProperty="orderEvaluate.id" parameterType="com.plan.a.es.entity.OrderEvaluate">
+	<![CDATA[
+		insert into order_evaluate (order_id, owner, target, message, score, crt, upt) 
+		values (#{orderEvaluate.orderId}, #{orderEvaluate.owner}, #{orderEvaluate.target}, #{orderEvaluate.message}, #{orderEvaluate.score}, now(), now())
+	]]>
+	</insert>
+
+</mapper>

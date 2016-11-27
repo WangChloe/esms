@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.plan.a.es.dao.OrderBaseDao">
+
+	<select id="findAll" resultType="com.plan.a.es.entity.OrderBase">
+	<![CDATA[
+		select id, customer_id as customerId, agent_id as agentId, inc, typ, t_time, s_time, price, notes, crt, upt
+		from order_base
+	]]>
+	</select>
+
+	<select id="findById" resultType="com.plan.a.es.entity.OrderBase">
+	<![CDATA[
+		select id, customer_id as customerId, agent_id as agentId, inc, typ, t_time, s_time, price, notes, crt, upt
+		from order_base
+		where id=#{id}
+	]]>
+	</select>
+
+	<select id="findByEstablish" resultType="com.plan.a.es.entity.OrderBase">
+	<![CDATA[
+		select t1.id as id, t1.inc as inc, t1.typ as typ, t1.t_time as tTime, 
+				t1.s_time as sTime, t1.price as price, t1.notes as notes,
+				t1.customer_id as customerId, t1.agent_id as agentId, t1.crt as crt, t1.upt as upt
+		from order_base as t1, order_process as t2
+		where t1.id = t2.order_id
+		and t2.stat = 1
+	]]>
+	</select>
+
+	<select id="findByCustomerId" resultType="com.plan.a.es.entity.OrderBase">
+	<![CDATA[
+		select id, customer_id as customerId, agent_id as agentId, inc, typ, t_time, s_time, price, notes, crt, upt
+		from order_base
+		where customer_id=#{customerId}
+	]]>
+	</select>
+
+	<select id="findByAgentId" resultType="com.plan.a.es.entity.OrderBase">
+	<![CDATA[
+		select id, customer_id as customerId, agent_id as agentId, inc, typ, t_time, s_time, price, notes, crt, upt
+		from order_base
+		where agent_id=#{agentId}
+	]]>
+	</select>
+
+	<insert id="save" useGeneratedKeys="true" keyProperty="orderBase.id"
+		parameterType="com.plan.a.es.entity.OrderBase">
+	<![CDATA[
+		insert into order_base (customer_id, agent_id, inc, typ, t_time, s_time, price, notes, crt, upt) 
+		values (#{orderBase.customerId}, #{orderBase.agentId}, #{orderBase.inc}, #{orderBase.typ}, #{orderBase.tTime}, #{orderBase.sTime}, #{orderBase.price}, #{orderBase.notes}, now(), now())
+	]]>
+	</insert>
+
+	<update id="updateAgentId">
+	<![CDATA[
+		update order_base
+		set agent_id=#{agentId}, upt=now()
+		where id=#{id}
+	]]>
+	</update>
+
+	<delete id="remove">
+	<![CDATA[
+		delete 
+		from order_base
+		where id=#{id}
+	]]>
+	</delete>
+
+</mapper>
