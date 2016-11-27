@@ -21,10 +21,14 @@ var loginVerify = {
         LoginSuccess: function () {
             $.ajax({
                 type: "GET",
-                url: "http://localhost:8080/esms/user/login.do?user.mobile=" + $("#user-mobile").val() + "&user.pwd=" + $("#user-pwd").val(),
+                // url: "http://localhost:8080/esms/user/login.do?user.mobile=" + $("#user-mobile").val() + "&user.pwd=" + $("#user-pwd").val(),
+                url: "http://localhost:8080/esms/user/login.do?",
+                data:'user.mobile='+ $("#user-mobile").val() +'&user.pwd='+ $("#user-pwd").val() + '',
                 success: function (data) {
                         console.log(data.msg);
-						$('nav').find('a.login_btn').remove().end().append($("#user-mobile").val());
+                        var mobile =$("#user-mobile").val();
+                        $('nav').find('a.login_btn').remove().end();
+                        $('nav ul').append('<li><a href="javascript:;"><i class="icon-user"></i>'+mobile+'</a></li>');
                     },
                     error: function () {
                         console.log('错误');
