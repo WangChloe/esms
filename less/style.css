@@ -161,12 +161,18 @@ q:after {
   content: none;
 }
 a {
+  text-decoration: none;
   margin: 0;
   padding: 0;
   font-size: 100%;
   vertical-align: baseline;
   background: transparent;
   color: #ffffff;
+}
+a:hover,
+a:focus {
+  text-decoration: none;
+  color: #d2ba07;
 }
 /* change colours to suit your needs */
 ins {
@@ -260,6 +266,9 @@ header .logo {
   font-weight: bold;
   line-height: 100px;
   text-decoration: none;
+}
+header .logo:hover {
+  color: #fff;
 }
 header a.hamburger {
   text-decoration: none;
@@ -397,6 +406,7 @@ header nav .login_btn:hover {
   margin-right: 0;
 }
 .listings ul.properties_list li .property_details {
+  margin-top: -3px;
   padding: 2.941176470588235% 5.882352941176471% 4.117647058823529% 5.882352941176471%;
   border: 1px solid #f2f1f1;
   border-top: 0;

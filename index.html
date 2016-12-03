@@ -7,8 +7,8 @@
 	-->
 	<meta name="description" content="Express Management System"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
-	
-	<link rel="stylesheet" href="fonts/fontello/css/fontello.css">
+
+	<link rel="stylesheet" href="fonts/fontello/css/weibo.css">
 	<link rel="stylesheet" href="fonts/fontello/css/animation.css">
 	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="less/style.css">
@@ -147,51 +147,25 @@
 	<section class="listings" id="listings">
 		<div class="wrapper">
 			<ul class="properties_list">
-				<li>
+	<!-- 			<li>
 					<a href="javascript:;">
 						<img src="img/property_1.jpg" alt="" title="" class="property_img"/>
 					</a>
 					<span class="price">￥25</span>
 					<div class="property_details">
-						<h1>
-							<a href="javascript:;">Fuisque dictum tortor at purus libero</a>
+						<h1 class="list-inc">
+							<a href="javascript:;">韵达快递</a>
 						</h1>
-						<h2>
-							2 kitchens, 2 bed, 2 bath...
-							<span class="property_size">(288ftsq)</span>
+						<h2 class="list-tTime">
+							代领时间：
+							<span class="property_size">十二点</span>
+						</h2>
+						<h2 class="list-sTime">
+							送货时间：
+							<span class="property_size">十八点</span>
 						</h2>
 					</div>
-				</li>
-				<li>
-					<a href="javascript:;">
-						<img src="img/property_2.jpg" alt="" title="" class="property_img"/>
-					</a>
-					<span class="price">￥10</span>
-					<div class="property_details">
-						<h1>
-							<a href="javascript:;">Fuisque dictum tortor at purus libero</a>
-						</h1>
-						<h2>
-							2 kitchens, 2 bed, 2 bath...
-							<span class="property_size">(288ftsq)</span>
-						</h2>
-					</div>
-				</li>
-				<li>
-					<a href="javascript:;">
-						<img src="img/property_3.jpg" alt="" title="" class="property_img"/>
-					</a>
-					<span class="price">￥5</span>
-					<div class="property_details">
-						<h1>
-							<a href="javascript:;">Fuisque dictum tortor at purus libero</a>
-						</h1>
-						<h2>
-							2 kitchens, 2 bed, 2 bath...
-							<span class="property_size">(288ftsq)</span>
-						</h2>
-					</div>
-				</li>
+				</li> -->
 			</ul>
 			<div class="more_listing">
 				<a href="javascript:;" class="more_listing_btn">View More Listings</a>
@@ -295,36 +269,37 @@
 	</footer>
 	<!--  end footer  -->
 	<div class="modall reg h">
-		<form action="user/register.do">
-		<!-- <form> -->
-			<input type="text" id="user.name" name="user.name" placeholder="姓名">	
-			<input type="text" id="user.userNo" name="user.userNo" placeholder="学号">	
-			<input type="text" id="user.dorm" name="user.dorm" placeholder="宿舍楼">	
-			<input type="text" id="user.mobile" name="user.mobile" placeholder="手机号">	
-			<input type="password" id="user.pwd" name="user.pwd" placeholder="密码">	
-			<input type="submit" class="i-btn mod-register" value="注册">	
+		<!-- <form action="http://localhost:8080/esms/user/register.do"> -->
+		<form>
+			<input type="text" id="reg-name" name="user.name" placeholder="姓名">
+			<input type="text" id="reg-userNo" name="user.userNo" placeholder="学号">
+			<input type="text" id="reg-dorm" name="user.dorm" placeholder="宿舍楼">
+			<input type="text" id="reg-mobile" name="user.mobile" placeholder="手机号">
+			<input type="password" id="reg-pwd" name="user.pwd" placeholder="密码">
+			<input type="button" class="i-btn mod-register" value="注册">
 			<a class="login">已有账户？立即登录 &gt;</a>
 		</form>
 	</div>
 	<div class="modall log h">
-		<!-- <form action="user/login.do"> -->
+		<!-- <form action="http://localhost:8080/esms/user/login.do"> -->
 		<form>
-			<input type="text" id="user.mobile" name="user.mobile" placeholder="手机号">	
-			<input type="password" id="user.pwd" name="user.pwd" placeholder="密码">	
-			<button class="i-btn mod-login" onclick="getData()">登录</button>	
+			<input type="text" id="user-mobile" name="user.mobile" placeholder="手机号">
+			<input type="password" id="user-pwd" name="user.pwd" placeholder="密码">
+			<input type="button" class="i-btn mod-login" value="登录">
 			<a class="register">还没有账户？立即注册 &gt;</a>
 		</form>
 	</div>
 	<div class="modall est h">
-		<form action="establish.do">
-			<input type="text" id="orderBase.id" name="orderBase.id" placeholder="收件人ID">	
-			<input type="text" id="orderBase.inc" name="orderBase.inc" placeholder="快递公司">	
-			<input type="text" id="orderBase.typ" name="orderBase.typ" placeholder="快递种类">	
-			<input type="text" id="orderBase.price" name="orderBase.price"  placeholder="期望金额">	
-			<input type="text" id="orderBase.tTime" name="orderBase.tTime" placeholder="代领时间">	
-			<input type="text" id="orderBase.sTime" name="orderBase.sTime" placeholder="送货时间">	
-			<input type="text" id="orderBase.notes" name="orderBase.notes" placeholder="备注信息">	
-			<input type="submit" class="i-btn mod-order" value="下单">
+		<!-- <form action="http://localhost:8080/esms/orderBase/establish.do"> -->
+		<form>
+			<input type="text" id="orderBase-Cid" name="orderBase.curstomerId" placeholder="收件人ID">
+			<input type="text" id="orderBase-inc" name="orderBase.inc" placeholder="快递公司">
+			<input type="text" id="orderBase-typ" name="orderBase.typ" placeholder="快递种类">
+			<input type="text" id="orderBase-price" name="orderBase.price"  placeholder="期望金额">
+			<input type="text" id="orderBase-tTime" name="orderBase.tTime" placeholder="代领时间">
+			<input type="text" id="orderBase-sTime" name="orderBase.sTime" placeholder="送货时间">
+			<input type="text" id="orderBase-notes" name="orderBase.notes" placeholder="备注信息">
+			<input type="button" class="i-btn mod-est" value="下单">
 		</form>
 	</div>
 </body>
