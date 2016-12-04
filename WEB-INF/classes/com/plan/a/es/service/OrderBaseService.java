@@ -59,7 +59,11 @@ public class OrderBaseService {
 		Assert.notNull(orderBase.getTyp(), "快递种类为空");
 		Assert.notNull(orderBase.getPrice(), "期望价格为空");
 		Assert.isTrue(StringUtils.isNotBlank(notes), "备注为空");
+<<<<<<< HEAD
 		// Assert.isTrue(StringUtils.isNotBlank(tTime), "代领时间为空");
+=======
+		Assert.isTrue(StringUtils.isNotBlank(tTime), "代领时间为空");
+>>>>>>> 76b607d7768316742911fe128b64ea500a711b06
 		Assert.isTrue(StringUtils.isNotBlank(sTime), "送货时间为空");
 		Assert.isTrue(StringUtils.isNotBlank(customerId + ""), "收件人为空");
 

@@ -39,8 +39,13 @@ public class OrderBaseAction extends BaseAction {
 			Assert.notNull(orderBase.getInc(), "参数错误：快递公司为空");
 			Assert.notNull(orderBase.getTyp(), "参数错误：快递种类为空");
 			Assert.notNull(orderBase.getPrice(), "参数错误：期望价格为空");
+<<<<<<< HEAD
 //			Assert.isTrue(StringUtils.isNotBlank(orderBase.gettTime()), "参数错误：代领时间为空");
 //			Assert.isTrue(StringUtils.isNotBlank(orderBase.getsTime()), "参数错误：送货时间为空");
+=======
+			Assert.isTrue(StringUtils.isNotBlank(orderBase.gettTime()), "参数错误：代领时间为空");
+			Assert.isTrue(StringUtils.isNotBlank(orderBase.getsTime()), "参数错误：送货时间为空");
+>>>>>>> 76b607d7768316742911fe128b64ea500a711b06
 			Assert.isTrue(StringUtils.isNotBlank(orderBase.getNotes()), "参数错误：备注为空");
 			Assert.isTrue(StringUtils.isNotBlank(orderBase.getCustomerId() + ""), "参数错误：收件人为空");
 
