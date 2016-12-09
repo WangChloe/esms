@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.plan.a.es.dao.OrderProcessDao">
+
+	<select id="findAll" resultType="com.plan.a.es.entity.OrderProcess">
+	<![CDATA[
+		select id, order_id as orderId, stat, crt, upt
+		from order_process
+	]]>
+	</select>
+
+	<select id="findById" resultType="com.plan.a.es.entity.OrderProcess">
+	<![CDATA[
+		select id, order_id as orderId, stat, crt, upt
+		from order_process
+		where id=#{id}
+	]]>
+	</select>
+
+	<select id="findByOrderId" resultType="com.plan.a.es.entity.OrderProcess">
+	<![CDATA[
+		select id, order_id as orderId, stat, crt, upt
+		from order_process
+		where order_id=#{orderId}
+	]]>
+	</select>
+	
+	<select id="findByStat" resultType="com.plan.a.es.entity.OrderProcess">
+	<![CDATA[
+		select id, order_id as orderId, stat, crt, upt
+		from order_process
+		where stat=#{stat}
+	]]>
+	</select>
+	
+	<insert id="save" useGeneratedKeys="true" keyProperty="orderProcess.id" parameterType="com.plan.a.es.entity.OrderProcess">
+	<![CDATA[
+		insert into order_process (order_id, stat, crt, upt) 
+		values (#{orderProcess.orderId}, 1, now(), now())
+	]]>
+	</insert>
+	
+	<update id="updateStat">
+	<![CDATA[
+		update order_process
+		set stat=#{stat},upt=now()
+		where order_id=#{orderId}
+	]]> 
+	</update>
+	
+</mapper>

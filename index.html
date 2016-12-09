@@ -3,17 +3,18 @@
 <head>
 	<title>Dare U - Express Substitute Management System</title>
 	<meta charset="utf-8">
-	<!-- <meta name="author" content="pixelhint.com">
-	-->
+	<meta name="author" content="wangchloe">
 	<meta name="description" content="Express Management System"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
-	
-	<link rel="stylesheet" href="fonts/fontello/css/fontello.css">
+
+	<link rel="stylesheet" href="fonts/fontello/css/weibo.css">
 	<link rel="stylesheet" href="fonts/fontello/css/animation.css">
-	<link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+	<link rel="stylesheet" href="less/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="less/style.css">
 	<script src="js/jquery.js"></script>
-	<script src="bootstrap/bootstrap.min.js"></script>
+	<!-- <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+	<script src="js/bootstrap.min.js"></script>
 	<!-- <link rel="stylesheet" href="css/responsive.css"> -->
 	<!-- <link rel="stylesheet" href="js/carousel.js"> -->
 	<script src="js/main.js"></script>
@@ -78,35 +79,36 @@
 			</div>
 			<!-- <a data-slide="prev" href="#carousel" class="left carousel-control"></a>
 			<a data-slide="next" href="#carousel" class="right carousel-control"></a> -->
-		<header>
-			<div class="wrapper">
-				<a href="index.html" class="logo">Dare U</a>
-				<nav>
-					<ul>
-						<li>
-							<a href="#" class="establish"><i class="icon-plus-circled"></i>Establish</a>
-						</li>
-						<li>
-							<a href="#listings"><i class="icon-search"></i>Accept</a>
-						</li>
-						<li>
-							<a href="http://wangchloe.github.io" target="_blank"><i class="icon-github-circled"></i>Contact</a>
-						</li>
-					</ul>
-					<a class="login_btn login">Login</a>
-					<a class="login_btn register">Register</a>
-				</nav>
-			<!-- </div> -->
-		</header>
+			<div id="header">
+				<header>
+					<div class="wrapper">
+						<a href="index.html" class="logo">Dare U</a>
+						<nav>
+							<ul>
+								<li>
+									<a href="javascript:;" class="establish"><i class="icon-plus-circled"></i>Establish</a>
+								</li>
+								<li>
+									<a href="#listings"><i class="icon-search"></i>Accept</a>
+								</li>
+								<li>
+									<a href="http://wangchloe.github.io" target="_blank"><i class="icon-github-circled"></i>Contact</a>
+								</li>
+							</ul>
+							<a class="login_btn login">Login</a>
+							<a class="login_btn register">Register</a>
+						</nav>
+					</div>
+				</header>
+			</div>
 		<!--  end header section  -->
 
 		<section class="caption">
 			<h2 class="caption">ShangHai Normal University</h2>
 			<h3 class="properties">Express Substitute Management  System</h3>
 		</section>
-		</div>
 	</section>
-	<!--  end hero section  -->
+	<!--  end header section  -->
 
 	<section class="search">
 		<div class="wrapper">
@@ -114,7 +116,7 @@
 				<input type="text" id="search" name="search" placeholder="What are you looking for?"  autocomplete="off"/>
 				<input type="submit" id="submit_search" name="submit_search"/>
 			</form>
-			<a href="#" class="advanced_search_icon" id="advanced_search_btn"></a> -->
+			<a href="javascript:;" class="advanced_search_icon" id="advanced_search_btn"></a> -->
 		</div>
 
 		<!-- <div class="advanced_search">
@@ -145,144 +147,28 @@
 	<section class="listings" id="listings">
 		<div class="wrapper">
 			<ul class="properties_list">
-				<li>
-					<a href="#">
+	<!-- 			<li>
+					<a href="javascript:;">
 						<img src="img/property_1.jpg" alt="" title="" class="property_img"/>
 					</a>
 					<span class="price">￥25</span>
 					<div class="property_details">
-						<h1>
-							<a href="#">Fuisque dictum tortor at purus libero</a>
+						<h1 class="list-inc">
+							<a href="javascript:;">韵达快递</a>
 						</h1>
-						<h2>
-							2 kitchens, 2 bed, 2 bath...
-							<span class="property_size">(288ftsq)</span>
+						<h2 class="list-tTime">
+							代领时间：
+							<span class="property_size">十二点</span>
 						</h2>
-					</div>
-				</li>
-				<li>
-					<a href="#">
-						<img src="img/property_2.jpg" alt="" title="" class="property_img"/>
-					</a>
-					<span class="price">￥10</span>
-					<div class="property_details">
-						<h1>
-							<a href="#">Fuisque dictum tortor at purus libero</a>
-						</h1>
-						<h2>
-							2 kitchens, 2 bed, 2 bath...
-							<span class="property_size">(288ftsq)</span>
-						</h2>
-					</div>
-				</li>
-				<li>
-					<a href="#">
-						<img src="img/property_3.jpg" alt="" title="" class="property_img"/>
-					</a>
-					<span class="price">￥5</span>
-					<div class="property_details">
-						<h1>
-							<a href="#">Fuisque dictum tortor at purus libero</a>
-						</h1>
-						<h2>
-							2 kitchens, 2 bed, 2 bath...
-							<span class="property_size">(288ftsq)</span>
-						</h2>
-					</div>
-				</li>
-				<!-- <li>
-					<a href="#">
-						<img src="img/property_1.jpg" alt="" title="" class="property_img"/>
-					</a>
-					<span class="price">￥25</span>
-					<div class="property_details">
-						<h1>
-							<a href="#">Fuisque dictum tortor at purus libero</a>
-						</h1>
-						<h2>
-							2 kitchens, 2 bed, 2 bath...
-							<span class="property_size">(288ftsq)</span>
-						</h2>
-					</div>
-				</li>
-				<li>
-					<a href="#">
-						<img src="img/property_2.jpg" alt="" title="" class="property_img"/>
-					</a>
-					<span class="price">￥10</span>
-					<div class="property_details">
-						<h1>
-							<a href="#">Fuisque dictum tortor at purus libero</a>
-						</h1>
-						<h2>
-							2 kitchens, 2 bed, 2 bath...
-							<span class="property_size">(288ftsq)</span>
-						</h2>
-					</div>
-				</li>
-				<li>
-					<a href="#">
-						<img src="img/property_3.jpg" alt="" title="" class="property_img"/>
-					</a>
-					<span class="price">￥5</span>
-					<div class="property_details">
-						<h1>
-							<a href="#">Fuisque dictum tortor at purus libero</a>
-						</h1>
-						<h2>
-							2 kitchens, 2 bed, 2 bath...
-							<span class="property_size">(288ftsq)</span>
-						</h2>
-					</div>
-				</li>
-				<li>
-					<a href="#">
-						<img src="img/property_1.jpg" alt="" title="" class="property_img"/>
-					</a>
-					<span class="price">￥25</span>
-					<div class="property_details">
-						<h1>
-							<a href="#">Fuisque dictum tortor at purus libero</a>
-						</h1>
-						<h2>
-							2 kitchens, 2 bed, 2 bath...
-							<span class="property_size">(288ftsq)</span>
-						</h2>
-					</div>
-				</li>
-				<li>
-					<a href="#">
-						<img src="img/property_2.jpg" alt="" title="" class="property_img"/>
-					</a>
-					<span class="price">￥10</span>
-					<div class="property_details">
-						<h1>
-							<a href="#">Fuisque dictum tortor at purus libero</a>
-						</h1>
-						<h2>
-							2 kitchens, 2 bed, 2 bath...
-							<span class="property_size">(288ftsq)</span>
-						</h2>
-					</div>
-				</li>
-				<li>
-					<a href="#">
-						<img src="img/property_3.jpg" alt="" title="" class="property_img"/>
-					</a>
-					<span class="price">￥5</span>
-					<div class="property_details">
-						<h1>
-							<a href="#">Fuisque dictum tortor at purus libero</a>
-						</h1>
-						<h2>
-							2 kitchens, 2 bed, 2 bath...
-							<span class="property_size">(288ftsq)</span>
+						<h2 class="list-sTime">
+							送货时间：
+							<span class="property_size">十八点</span>
 						</h2>
 					</div>
 				</li> -->
 			</ul>
 			<div class="more_listing">
-				<a href="#" class="more_listing_btn">View More Listings</a>
+				<a href="javascript:;" class="more_listing_btn">View More Listings</a>
 			</div>
 		</div>
 	</section>
@@ -294,39 +180,19 @@
 				<li class="links">
 					<ul>
 						<li>
-							<a href="#">About</a>
+							<a href="javascript:;">About</a>
 						</li>
 						<li>
-							<a href="#">Support</a>
+							<a href="javascript:;">Support</a>
 						</li>
 						<li>
-							<a href="#">Terms</a>
+							<a href="javascript:;">Terms</a>
 						</li>
 						<li>
-							<a href="#">Policy</a>
+							<a href="javascript:;">Policy</a>
 						</li>
 						<li>
-							<a href="#">Contact</a>
-						</li>
-					</ul>
-				</li>
-
-				<li class="links">
-					<ul>
-						<li>
-							<a href="#">Appartements</a>
-						</li>
-						<li>
-							<a href="#">Houses</a>
-						</li>
-						<li>
-							<a href="#">Villas</a>
-						</li>
-						<li>
-							<a href="#">Mansions</a>
-						</li>
-						<li>
-							<a href="#">...</a>
+							<a href="javascript:;">Contact</a>
 						</li>
 					</ul>
 				</li>
@@ -334,19 +200,39 @@
 				<li class="links">
 					<ul>
 						<li>
-							<a href="#">New York</a>
+							<a href="javascript:;">Appartements</a>
 						</li>
 						<li>
-							<a href="#">Los Anglos</a>
+							<a href="javascript:;">Houses</a>
 						</li>
 						<li>
-							<a href="#">Miami</a>
+							<a href="javascript:;">Villas</a>
 						</li>
 						<li>
-							<a href="#">Washington</a>
+							<a href="javascript:;">Mansions</a>
 						</li>
 						<li>
-							<a href="#">...</a>
+							<a href="javascript:;">...</a>
+						</li>
+					</ul>
+				</li>
+
+				<li class="links">
+					<ul>
+						<li>
+							<a href="javascript:;">New York</a>
+						</li>
+						<li>
+							<a href="javascript:;">Los Anglos</a>
+						</li>
+						<li>
+							<a href="javascript:;">Miami</a>
+						</li>
+						<li>
+							<a href="javascript:;">Washington</a>
+						</li>
+						<li>
+							<a href="javascript:;">...</a>
 						</li>
 					</ul>
 				</li>
@@ -360,16 +246,16 @@
 					</p>
 					<ul>
 						<li>
-							<a href="http://facebook.com/pixelhint" class="facebook" target="_blank"></a>
+							<a href="javascript:;" class="facebook" target="_blank"></a>
 						</li>
 						<li>
-							<a href="http://twitter.com/pixelhint" class="twitter" target="_blank"></a>
+							<a href="javascript:;" class="twitter" target="_blank"></a>
 						</li>
 						<li>
-							<a href="http://plus.google.com/+Pixelhint" class="google" target="_blank"></a>
+							<a href="javascript:;" class="google" target="_blank"></a>
 						</li>
 						<li>
-							<a href="#" class="skype"></a>
+							<a href="javascipt:;" class="skype"></a>
 						</li>
 					</ul>
 				</li>
@@ -382,35 +268,40 @@
 		</div>
 	</footer>
 	<!--  end footer  -->
+
+	<div id="mask" class="h"></div>
 	<div class="modall reg h">
-		<form action="http://localhost:8080/esms/user/register.do">
-			<input type="text" id="user.name" name="user.name" placeholder="姓名">	
-			<input type="text" id="user.userNo" name="user.userNo" placeholder="学号">	
-			<input type="text" id="user.dorm" name="user.dorm" placeholder="宿舍楼">	
-			<input type="text" id="user.mobile" name="user.mobile" placeholder="手机号">	
-			<input type="password" id="user.pwd" name="user.pwd" placeholder="密码">	
-			<input type="submit" class="i-btn" value="注册">	
+		<!-- <form action="http://localhost:8080/esms/user/register.do"> -->
+		<form>
+			<input type="text" id="reg-name" name="user.name" placeholder="姓名">
+			<input type="text" id="reg-userNo" name="user.userNo" placeholder="学号">
+			<input type="text" id="reg-dorm" name="user.dorm" placeholder="宿舍楼">
+			<input type="text" id="reg-mobile" name="user.mobile" placeholder="手机号">
+			<input type="password" id="reg-pwd" name="user.pwd" placeholder="密码">
+			<input type="button" class="i-btn mod-register" value="注册">
 			<a class="login">已有账户？立即登录 &gt;</a>
 		</form>
 	</div>
 	<div class="modall log h">
-		<form action="http://localhost:8080/esms/user/login.do">
-			<input type="text" id="user.mobile" name="user.mobile" placeholder="手机号">	
-			<input type="password" id="user.pwd" name="user.pwd" placeholder="密码">	
-			<input type="submit" class="i-btn" value="登录">	
+		<!-- <form action="http://localhost:8080/esms/user/login.do"> -->
+		<form>
+			<input type="text" id="user-mobile" name="user.mobile" placeholder="手机号">
+			<input type="password" id="user-pwd" name="user.pwd" placeholder="密码">
+			<input type="button" class="i-btn mod-login" value="登录">
 			<a class="register">还没有账户？立即注册 &gt;</a>
 		</form>
 	</div>
 	<div class="modall est h">
-		<form action="http://localhost:8080/esms/orderBase/establish.do">
-			<input type="text" id="orderBase.id" name="orderBase.id" placeholder="收件人ID">	
-			<input type="text" id="orderBase.inc" name="orderBase.inc" placeholder="快递公司">	
-			<input type="text" id="orderBase.typ" name="orderBase.typ" placeholder="快递种类">	
-			<input type="text" id="orderBase.price" name="orderBase.price"  placeholder="期望金额">	
-			<input type="text" id="orderBase.tTime" name="orderBase.tTime" placeholder="代领时间">	
-			<input type="text" id="orderBase.sTime" name="orderBase.sTime" placeholder="送货时间">	
-			<input type="text" id="orderBase.notes" name="orderBase.notes" placeholder="备注信息">	
-			<input type="submit" class="i-btn" value="下单">
+		<!-- <form action="http://localhost:8080/esms/orderBase/establish.do"> -->
+		<form>
+			<input type="text" id="orderBase-Cid" name="orderBase.curstomerId" placeholder="收件人ID">
+			<input type="text" id="orderBase-inc" name="orderBase.inc" placeholder="快递公司">
+			<input type="text" id="orderBase-typ" name="orderBase.typ" placeholder="快递种类">
+			<input type="text" id="orderBase-price" name="orderBase.price"  placeholder="期望金额">
+			<input type="text" id="orderBase-tTime" name="orderBase.tTime" placeholder="代领时间">
+			<input type="text" id="orderBase-sTime" name="orderBase.sTime" placeholder="送货时间">
+			<input type="text" id="orderBase-notes" name="orderBase.notes" placeholder="备注信息">
+			<input type="button" class="i-btn mod-est" value="下单">
 		</form>
 	</div>
 </body>
