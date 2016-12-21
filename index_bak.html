@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Dare U - Express Substitute Management System</title>
+	<meta charset="utf-8">
+	<meta name="author" content="wangchloe">
+	<meta name="description" content="Express Management System"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+
+	<link rel="stylesheet" href="fonts/fontello/css/weibo.css">
+	<link rel="stylesheet" href="fonts/fontello/css/animation.css">
+	<!-- <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+	<link rel="stylesheet" href="less/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="less/style.css">
+	<script src="js/jquery.js"></script>
+	<!-- <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- <link rel="stylesheet" href="css/responsive.css"> -->
+	<!-- <link rel="stylesheet" href="js/carousel.js"> -->
+	<script src="js/main.js"></script>
+</head>
+<body>
+	<section id="carousel" class="carousel slide hero">
+			<ol class="carousel-indicators">
+				<li class="active" data-slide-to="0" data-target="#carousel"></li>
+				<li data-slide-to="1" data-target="#carousel"></li>
+				<li data-slide-to="2" data-target="#carousel"></li>
+				<li data-slide-to="3" data-target="#carousel"></li>
+				<li data-slide-to="4" data-target="#carousel"></li>
+				<li data-slide-to="5" data-target="#carousel"></li>
+				<li data-slide-to="6" data-target="#carousel"></li>
+				<li data-slide-to="7" data-target="#carousel"></li>
+				<li data-slide-to="8" data-target="#carousel"></li>
+				<li data-slide-to="9" data-target="#carousel"></li>
+			</ol>
+			<div class="carousel-inner">
+				<div class="item active">
+					<img alt="" src="img/slide1.jpg">
+					<!-- <div class="carousel-caption">
+						<h3>校园新关系</h3>
+						<p>同校校友，信息认证！</p>
+					</div> -->
+				</div>
+				<div class="item">
+					<img alt="" src="img/slide2.jpg" />
+					<!-- <div class="carousel-caption">
+						<h3>足不出户</h3>
+						<p>快递送上门，省时又省力！</p>
+					</div> -->
+				</div>
+				<div class="item">
+					<img alt="" src="img/slide3.jpg" />
+					<!-- <div class="carousel-caption">
+						<h3>双方互评</h3>
+						<p>安全保障，好评再来！</p>
+					</div> -->
+				</div>
+				<div class="item">
+					<img alt="" src="img/slide4.jpg" />
+				</div>
+				<div class="item">
+					<img alt="" src="img/slide5.jpg" />
+				</div>
+				<div class="item">
+					<img alt="" src="img/slide6.jpg" />
+				</div>
+				<div class="item">
+					<img alt="" src="img/slide7.jpg" />
+				</div>
+				<div class="item">
+					<img alt="" src="img/slide8.jpg" />
+				</div>
+				<div class="item">
+					<img alt="" src="img/slide9.jpg" />
+				</div>
+				<div class="item">
+					<img alt="" src="img/slide10.jpg" />
+				</div>
+			</div>
+			<!-- <a data-slide="prev" href="#carousel" class="left carousel-control"></a>
+			<a data-slide="next" href="#carousel" class="right carousel-control"></a> -->
+			<div id="header">
+				<header>
+					<div class="wrapper">
+						<a href="index.html" class="logo">Dare U</a>
+						<nav>
+							<ul>
+								<li>
+									<a href="javascript:;" class="establish"><i class="icon-plus-circled"></i>Establish</a>
+								</li>
+								<li>
+									<a href="#listings"><i class="icon-search"></i>Accept</a>
+								</li>
+								<li>
+									<a href="http://wangchloe.github.io" target="_blank"><i class="icon-github-circled"></i>Contact</a>
+								</li>
+							</ul>
+							<a class="login_btn login">Login</a>
+							<a class="login_btn register">Register</a>
+						</nav>
+					</div>
+				</header>
+			</div>
+		<!--  end header section  -->
+
+		<section class="caption">
+			<h2 class="caption">ShangHai Normal University</h2>
+			<h3 class="properties">Express Substitute Management  System</h3>
+		</section>
+	</section>
+	<!--  end header section  -->
+
+	<section class="search">
+		<div class="wrapper">
+			<!-- <form action="#" method="post">
+				<input type="text" id="search" name="search" placeholder="What are you looking for?"  autocomplete="off"/>
+				<input type="submit" id="submit_search" name="submit_search"/>
+			</form>
+			<a href="javascript:;" class="advanced_search_icon" id="advanced_search_btn"></a> -->
+		</div>
+
+		<!-- <div class="advanced_search">
+			<div class="wrapper">
+				<span class="arrow"></span>
+				<form action="#" method="post">
+					<div class="search_fields">
+						<input type="text" class="float" id="check_in_date" name="check_in_date" placeholder="Check In Date"  autocomplete="off">
+
+						<hr class="field_sep float"/>
+
+						<input type="text" class="float" id="check_out_date" name="check_out_date" placeholder="Check Out Date"  autocomplete="off"></div>
+					<div class="search_fields">
+						<input type="text" class="float" id="min_price" name="min_price" placeholder="Min. Price"  autocomplete="off">
+
+						<hr class="field_sep float"/>
+
+						<input type="text" class="float" id="max_price" name="max_price" placeholder="Max. price"  autocomplete="off"></div>
+					<input type="text" id="keywords" name="keywords" placeholder="Keywords"  autocomplete="off">
+					<input type="submit" id="submit_search" name="submit_search"/>
+				</form>
+			</div>
+		</div> -->
+		<!--  end advanced search section  -->
+	</section>
+	<!--  end search section  -->
+
+	<section class="listings" id="listings">
+		<div class="wrapper">
+			<ul class="properties_list">
+	<!-- 			<li>
+					<a href="javascript:;">
+						<img src="img/property_1.jpg" alt="" title="" class="property_img"/>
+					</a>
+					<span class="price">￥25</span>
+					<div class="property_details">
+						<h1 class="list-inc">
+							<a href="javascript:;">韵达快递</a>
+						</h1>
+						<h2 class="list-tTime">
+							代领时间：
+							<span class="property_size">十二点</span>
+						</h2>
+						<h2 class="list-sTime">
+							送货时间：
+							<span class="property_size">十八点</span>
+						</h2>
+					</div>
+				</li> -->
+			</ul>
+			<div class="more_listing">
+				<a href="javascript:;" class="more_listing_btn">View More Listings</a>
+			</div>
+		</div>
+	</section>
+	<!--  end listing section  -->
+
+	<footer>
+		<div class="wrapper footer">
+			<ul>
+				<li class="links">
+					<ul>
+						<li>
+							<a href="javascript:;">About</a>
+						</li>
+						<li>
+							<a href="javascript:;">Support</a>
+						</li>
+						<li>
+							<a href="javascript:;">Terms</a>
+						</li>
+						<li>
+							<a href="javascript:;">Policy</a>
+						</li>
+						<li>
+							<a href="javascript:;">Contact</a>
+						</li>
+					</ul>
+				</li>
+
+				<li class="links">
+					<ul>
+						<li>
+							<a href="javascript:;">Appartements</a>
+						</li>
+						<li>
+							<a href="javascript:;">Houses</a>
+						</li>
+						<li>
+							<a href="javascript:;">Villas</a>
+						</li>
+						<li>
+							<a href="javascript:;">Mansions</a>
+						</li>
+						<li>
+							<a href="javascript:;">...</a>
+						</li>
+					</ul>
+				</li>
+
+				<li class="links">
+					<ul>
+						<li>
+							<a href="javascript:;">New York</a>
+						</li>
+						<li>
+							<a href="javascript:;">Los Anglos</a>
+						</li>
+						<li>
+							<a href="javascript:;">Miami</a>
+						</li>
+						<li>
+							<a href="javascript:;">Washington</a>
+						</li>
+						<li>
+							<a href="javascript:;">...</a>
+						</li>
+					</ul>
+				</li>
+
+				<li class="about">
+					<p>
+						Dare U 
+					</p>
+					<p>
+						Express Substitute Management System
+					</p>
+					<ul>
+						<li>
+							<a href="javascript:;" class="facebook" target="_blank"></a>
+						</li>
+						<li>
+							<a href="javascript:;" class="twitter" target="_blank"></a>
+						</li>
+						<li>
+							<a href="javascript:;" class="google" target="_blank"></a>
+						</li>
+						<li>
+							<a href="javascipt:;" class="skype"></a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+
+		<div class="copyrights wrapper">
+			<p>本站所用图片来源：@阿亮学长 <a href="http://weibo.com/u/2248032692" target="_blank"><i class="icon-weibo"></i></a></p>
+			Copyright © 2016 上海师范大学  袋U快递代理系统项目组
+		</div>
+	</footer>
+	<!--  end footer  -->
+
+	<div id="mask" class="h"></div>
+	<div class="modall reg h">
+		<!-- <form action="http://localhost:8080/esms/user/register.do"> -->
+		<form>
+			<input type="text" id="reg-name" name="user.name" placeholder="姓名">
+			<input type="text" id="reg-userNo" name="user.userNo" placeholder="学号">
+			<input type="text" id="reg-dorm" name="user.dorm" placeholder="宿舍楼">
+			<input type="text" id="reg-mobile" name="user.mobile" placeholder="手机号">
+			<input type="password" id="reg-pwd" name="user.pwd" placeholder="密码">
+			<input type="button" class="i-btn mod-register" value="注册">
+			<a class="login">已有账户？立即登录 &gt;</a>
+		</form>
+	</div>
+	<div class="modall log h">
+		<!-- <form action="http://localhost:8080/esms/user/login.do"> -->
+		<form>
+			<input type="text" id="user-mobile" name="user.mobile" placeholder="手机号">
+			<input type="password" id="user-pwd" name="user.pwd" placeholder="密码">
+			<input type="button" class="i-btn mod-login" value="登录">
+			<a class="register">还没有账户？立即注册 &gt;</a>
+		</form>
+	</div>
+	<div class="modall est h">
+		<!-- <form action="http://localhost:8080/esms/orderBase/establish.do"> -->
+		<form>
+			<input type="text" id="orderBase-Cid" name="orderBase.curstomerId" placeholder="收件人ID">
+			<input type="text" id="orderBase-inc" name="orderBase.inc" placeholder="快递公司">
+			<input type="text" id="orderBase-typ" name="orderBase.typ" placeholder="快递种类">
+			<input type="text" id="orderBase-price" name="orderBase.price"  placeholder="期望金额">
+			<input type="text" id="orderBase-tTime" name="orderBase.tTime" placeholder="代领时间">
+			<input type="text" id="orderBase-sTime" name="orderBase.sTime" placeholder="送货时间">
+			<input type="text" id="orderBase-notes" name="orderBase.notes" placeholder="备注信息">
+			<input type="button" class="i-btn mod-est" value="下单">
+		</form>
+	</div>
+</body>
+</html>
