@@ -6,7 +6,7 @@
 	<meta name="author" content="wangchloe">
 	<meta name="description" content="Express Management System"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
-
+	<link rel="shortcut icon" href="img/logo.ico"/>
 	<link rel="stylesheet" href="fonts/fontello/css/weibo.css">
 	<link rel="stylesheet" href="fonts/fontello/css/animation.css">
 	<!-- <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css"> -->
@@ -20,7 +20,7 @@
 	<script src="js/main.js"></script>
 </head>
 <body>
-	<section id="carousel" class="carousel slide hero">
+	<section id="carousel" class="carousel slide header">
 			<ol class="carousel-indicators">
 				<li class="active" data-slide-to="0" data-target="#carousel"></li>
 				<li data-slide-to="1" data-target="#carousel"></li>
@@ -94,6 +94,13 @@
 								<li>
 									<a href="http://wangchloe.github.io" target="_blank"><i class="icon-github-circled"></i>Contact</a>
 								</li>
+								<li class="userId" style='display: none;'>
+									<a href="javascript:;"><i class="icon-user"></i>18</a>
+									<ul>
+										<li><a href="user.html#userEst">查看我发布的订单</a></li>
+										<li><a href="user.html#userAcc">查看我接受的订单</a></li>
+									</ul>
+								</li>
 							</ul>
 							<a class="login_btn login">Login</a>
 							<a class="login_btn register">Register</a>
@@ -147,28 +154,39 @@
 	<section class="listings" id="listings">
 		<div class="wrapper">
 			<ul class="properties_list">
-	<!-- 			<li>
+				<!-- <li>
 					<a href="javascript:;">
 						<img src="img/property_1.jpg" alt="" title="" class="property_img"/>
 					</a>
-					<span class="price">￥25</span>
+					<span class="price">RMB 25</span>
 					<div class="property_details">
-						<h1 class="list-inc">
-							<a href="javascript:;">韵达快递</a>
-						</h1>
-						<h2 class="list-tTime">
-							代领时间：
-							<span class="property_size">十二点</span>
-						</h2>
-						<h2 class="list-sTime">
-							送货时间：
-							<span class="property_size">十八点</span>
-						</h2>
+						<div class="list-info">
+							<h1 class="list-inc">
+								<a href="javascript:;">韵达快递</a>
+							</h1>
+							<h2 class="list-tTime">
+								代领时间：
+								<span class="property_size">十二点</span>
+							</h2>
+							<h2 class="list-sTime">
+								送货时间：
+								<span class="property_size">十八点</span>
+							</h2>
+						</div>
+						<div class="list-status">
+							<a class="status-btn">
+							<span class="line line-top"></span>
+							<span class="line line-right"></span>
+							<span class="line line-bottom"></span>
+							<span class="line line-left"></span>
+							<span class="status">接受</span>
+							</a>
+						</div>
 					</div>
 				</li> -->
 			</ul>
 			<div class="more_listing">
-				<a href="javascript:;" class="more_listing_btn">View More Listings</a>
+				<a href="javascript:;" class="more_listing_btn">Pull Down To View More Listings</a>
 			</div>
 		</div>
 	</section>
@@ -276,7 +294,8 @@
 			<input type="text" id="reg-name" name="user.name" placeholder="姓名">
 			<input type="text" id="reg-userNo" name="user.userNo" placeholder="学号">
 			<input type="text" id="reg-dorm" name="user.dorm" placeholder="宿舍楼">
-			<input type="text" id="reg-mobile" name="user.mobile" placeholder="手机号">
+			<!-- <input type="text" id="reg-mobile" name="user.mobile" placeholder="手机号"> -->
+			<input type="text" id="reg-mobile" name="user.mobile" placeholder="手机号" maxlength="11">
 			<input type="password" id="reg-pwd" name="user.pwd" placeholder="密码">
 			<input type="button" class="i-btn mod-register" value="注册">
 			<a class="login">已有账户？立即登录 &gt;</a>
@@ -285,7 +304,8 @@
 	<div class="modall log h">
 		<!-- <form action="http://localhost:8080/esms/user/login.do"> -->
 		<form>
-			<input type="text" id="user-mobile" name="user.mobile" placeholder="手机号">
+			<!-- <input type="text" id="user-mobile" name="user.mobile" placeholder="手机号"> -->
+			<input type="text" id="user-mobile" name="user.mobile" placeholder="手机号" maxlength="11">
 			<input type="password" id="user-pwd" name="user.pwd" placeholder="密码">
 			<input type="button" class="i-btn mod-login" value="登录">
 			<a class="register">还没有账户？立即注册 &gt;</a>
@@ -293,13 +313,15 @@
 	</div>
 	<div class="modall est h">
 		<!-- <form action="http://localhost:8080/esms/orderBase/establish.do"> -->
-		<form>
-			<input type="text" id="orderBase-Cid" name="orderBase.curstomerId" placeholder="收件人ID">
-			<input type="text" id="orderBase-inc" name="orderBase.inc" placeholder="快递公司">
-			<input type="text" id="orderBase-typ" name="orderBase.typ" placeholder="快递种类">
-			<input type="text" id="orderBase-price" name="orderBase.price"  placeholder="期望金额">
-			<input type="text" id="orderBase-tTime" name="orderBase.tTime" placeholder="代领时间">
-			<input type="text" id="orderBase-sTime" name="orderBase.sTime" placeholder="送货时间">
+		<!--此处添加表单id，第2你的传值字段customerId写错了，第3字段tTime、sTime不能这样命名，改成下面的，
+		不然struts匹配不了，因为set方法后面跟的字段名首字母必须大写，这是struts的机制  -->
+		<form name="orderBaseForm" id="orderBaseForm">
+			<input type="text" id="orderBase-Cid" name="orderBase.customerId" placeholder="收件人ID整数">
+			<input type="text" id="orderBase-inc" name="orderBase.inc" placeholder="快递公司整数">
+			<input type="text" id="orderBase-typ" name="orderBase.typ" placeholder="快递种类整数">
+			<input type="text" id="orderBase-price" name="orderBase.price"  placeholder="期望金额整数">
+			<input type="text" id="orderBase-tTime" name="orderBase.daiTime" placeholder="代领时间">
+			<input type="text" id="orderBase-sTime" name="orderBase.sendTime" placeholder="送货时间">
 			<input type="text" id="orderBase-notes" name="orderBase.notes" placeholder="备注信息">
 			<input type="button" class="i-btn mod-est" value="下单">
 		</form>
