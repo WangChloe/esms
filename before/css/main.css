@@ -1,0 +1,73 @@
+/*
+* @Author: a
+* @Date:   2016-05-15 17:13:50
+* @Last Modified by:   a
+* @Last Modified time: 2016-05-15 23:35:02
+*/
+
+/*公用*/
+.comWidth {
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.leftArea {
+	float: left;
+}
+.rightArea {
+	float: right;
+}
+
+/*topBar*/
+.topBar {
+	height: 31px;
+	background-color: #F7F7F7;
+	line-height: 31px;
+}
+.collection {
+	background: url(../images/collection.jpg) left center no-repeat;
+	padding-left: 20px;
+	font-weight: bold;
+}
+.topBar a:hover {
+	color: #5DC2FF;
+}
+.topBar a:active{
+	color: #0000A0;
+}
+
+/*logo*/
+.logoBar {
+	height: :200px;
+	/*background-color: #90DBF7;*/
+}
+.logo {
+	padding-left: 15px;
+	padding-top: 13px;
+}
+
+/*searchBar*/
+.searchBar {
+	width: 350px;
+	padding-top: 20px;
+	padding-left: 50px;
+	padding-right: 120px;
+	float:left;
+}
+
+/*chooseBar*/
+.chooseBar {
+	margin-top: 20px; 
+}
+
+
+
+
+
+
+
+
+
+
+
+

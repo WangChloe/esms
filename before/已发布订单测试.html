@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>已发布订单测试</title>
+</head>
+<body onload="appendTable()">
+
+	<script type="text/javascript">
+		var txt = '{"code":"0","msg":"Success","data":[{"订单编号":1,"收件人":1,"代领人":2},{"订单编号":2,"收件人":3,"代领人":1}]}';
+
+		var obj = eval("(" + txt + ")");
+
+		var testArray = obj.data;
+
+		var headArray = [];
+
+		function appendTable() {
+
+			for ( var i in testArray[0]) {
+				headArray[headArray.length] = i;
+			}
+
+			for (var tableNo = 0; tableNo < testArray.length; tableNo++) {
+
+				var table = document.createElement("table");
+				var thead = document.createElement("tr");
+				for (var count = 0; count < headArray.length; count++) {
+					var td = document.createElement("td");
+					td.innerHTML = headArray[count];
+					thead.appendChild(td);
+				} 
+				/* thead.setAttribute(background - color, red);
+				thead.innerHTML = "<td>订单编号</td><td>收件人</td><td>代领人</td>"; */
+				table.appendChild(thead);
+				var tbody = document.createElement("tr");
+				for (var headCount = 0; headCount < headArray.length; headCount++) {
+					var cell = document.createElement("td");
+					cell.innerHTML = testArray[tableNo][headArray[headCount]];
+					tbody.appendChild(cell);
+				}
+				table.appendChild(tbody);
+				document.body.appendChild(table);
+			}
+
+		}
+	</script>
+</body>
+</html>

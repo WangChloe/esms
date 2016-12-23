@@ -1,0 +1,63 @@
+<!-- 用户信息注册 页面 -->
+<div class="content">
+	<div class="content_title">用户信息注册</div>
+	<form>
+		<table>
+		  <tr>
+		  	<td>姓名:</td>
+	        <td><input type="text" name="name" size="20">
+	      </tr>
+		  <tr>
+		    <td>学号:</td>
+		    <td><input type="text" name="numble" size="20"></td>
+		  </tr>
+		  <tr>
+		    <td>宿舍楼:</td>
+		    <td><input type="text" name="dormitory" size="20"></td>
+		  </tr>
+		  <tr>
+			<td>手机:</td>
+			<td><input type="text" name="phone" size="20"></td>
+			<td><input type="submit" value="获取验证码" /></td>
+		  </tr>
+		  <tr>
+		    <td>密码:</td>
+		    <td><input type="password" name="password" size="20"></td>
+		  </tr>
+		  <tr>
+		    <td>验证码:</td>
+		    <td><input type="text" name="code"></td>
+		  </tr>
+		  <tr>
+	        <td colspan="2" align="center"><input type="button" value="注册" onclick="callServer();" /><input type="reset" value="取消"/></td>
+	      </tr>
+	    </table>
+	</form>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		console.log(">>> load register2.html");
+	});
+
+
+	// http://121.41.20.245:9091/esms/user/register.do
+	var callServer = function(){
+		$.ajax({
+			type: "post",
+			dataType: "json",
+			url: "../user/register.do",				// 请求地址
+			data: "",								// 请求参数
+			error : function(){
+				console.log("error ...");
+			},
+			success: function(jsonData){
+				console.log("success...");
+				console.log(jsonData);
+				alert(jsonData.msg);
+			}
+		});
+	}
+</script>
+
+

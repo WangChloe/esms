@@ -1,0 +1,87 @@
+/* index.html */
+#idx_header
+{
+	width: 100%;
+	height: 32px;
+	background-color:#cccccc;
+	border:1px red solid;
+	margin:0;
+	padding:0;
+}
+
+#idx_footer
+{
+	width: 100%;
+	height: 22px;
+	background-color:#cccccc;
+	border:1px red solid;
+	margin:0;
+	padding:0;
+}
+
+.idx_navi_li
+{
+	margin-right: 15px;
+	margin-left: 15px;
+	background-color:#dddddd;
+	cursor: pointer;
+}
+
+
+/* header.html */
+#header_logo{
+	width:10%;
+	height: 10%;
+	// background-color: yellow;
+	margin-left:5%;
+	line-height: 32px;
+	display:inline;
+}
+
+#header_info {       
+	width: 10%;
+	height: 10%;
+	margin-left: 75%;
+	display:inline;
+	line-height: 32px;
+	text-align: center;
+	vertical-align:center;
+}
+
+
+
+/* footer.html */
+/* 
+	none 
+*/
+
+
+
+/* all page */
+.content_title
+{
+	font-size : 32px;
+	text-align: center
+}
+
+table
+{
+	/* 居中效果并不理想 尝试优化 */
+	margin:0 auto;
+	text-align: left;
+}
+
+
+
+/* un-used */
+/*
+#content
+{
+	width: 100%;
+	height: 90%;
+	background-color:red;
+	border:1px red solid;
+	margin:0;
+	padding:0;
+}
+*/

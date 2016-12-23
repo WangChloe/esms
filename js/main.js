@@ -31,7 +31,6 @@ $(document).ready(function() {
 	// 功能
 	listVerify.list();
 
-
 	$('.login').on("click", function(e) {
 		e.preventDefault();
 		$('#mask').show();
@@ -63,6 +62,12 @@ $(document).ready(function() {
 		estVerify.est();
 	})
 
+	$('.listings').on('click', '.status-btn', function(event) {
+		event.preventDefault();
+		console.log(this);
+		accVerify.accept(this);
+	})
+
 	// 遮罩
 	$('#mask').css('height', $(document.body).height() + 'px');
 	$('#mask').click(function() {
@@ -71,7 +76,7 @@ $(document).ready(function() {
 	});
 });
 
-
+// 功能：登录
 var loginVerify = {
 	login: function() {
 		if (this.check()) {
@@ -114,6 +119,7 @@ var loginVerify = {
 	}
 }
 
+// 功能：注册
 var registerVerify = {
 	register: function() {
 		if (this.check()) {
@@ -157,6 +163,7 @@ var registerVerify = {
 	}
 }
 
+// 功能：创建订单
 var estVerify = {
 	est: function() {
 		if (this.check()) {
@@ -195,6 +202,7 @@ var estVerify = {
 	}
 }
 
+// 功能：显示所有已发布未接受的订单
 var listVerify = {
 	list: function() {
 		this.ListSuccess();
@@ -226,7 +234,7 @@ var listVerify = {
 							var oSs = $('<span></span>').addClass('property_size').html(orderBase[i].sendTime + ':00').appendTo(osTime);
 							var oBtn = $('<a class="status-btn"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span></a>').appendTo(oLs);
 							var oStatus = $('<span></span>').addClass('status').appendTo(oBtn);
-							statVerify.stat(orderBase[i].id);
+							statVerify.stat(orderBase[i].id, orderBase[i].customerId);
 
 							switch (orderBase[i].inc) {
 								case 0:
@@ -264,17 +272,18 @@ var listVerify = {
 	}
 }
 
+// 功能：显示当前订单状态
 var statVerify = {
-	stat: function(id) {
+	stat: function(id, cId) {
 		if (this.check()) {
-			this.StatSuccess(id);
+			this.StatSuccess(id, cId);
 		}
 	},
 	check: function() {
 		// TODO：正则检验
 		return true;
 	},
-	StatSuccess: function(id) {
+	StatSuccess: function(id, cId) {
 		$.ajax({
 			type: "GET",
 			url: "http://localhost:8080/esms/orderProcess/findByOrderId.do?",
@@ -309,8 +318,51 @@ var statVerify = {
 							btnIn = '已过期';
 							break;
 					}
-					$('#ob' + id).find('.status').html(btnIn);
+					$('#ob' + id).find('.status-btn').attr('id', 'acc' + id).addClass('cId' + cId).find('.status').html(btnIn);
 				}
+			},
+			error: function() {
+				console.log('错误');
+			}
+		});
+	}
+}
+
+// 功能：接受订单
+var accVerify = {
+	accept: function(oBtn) {
+		if (this.check(oBtn)) {
+			this.AcceptSuccess(oBtn);
+		}
+	},
+	check: function(oBtn) {
+		//TODO：正则检验
+		// user36    status-btn cId36
+		if(!$('.userId').find('a').eq(0).text()){
+			console.log('用户还未登录');
+			$('#mask').show();
+			$('.log').show(100);
+			$('.reg, .est').hide();
+			return false;
+		} else {
+			var uId = $('.userId').attr('id').substring(4);
+		}
+		var cId = $(oBtn).attr('class').substring($(oBtn).attr('class').indexOf('cId') + 3);
+		if( uId== cId) {
+			alert('不能接受自己发布的订单');
+			return false;
+		}
+		return true;
+	},
+	AcceptSuccess: function(oBtn) {
+		$.ajax({
+			type: "GET",
+			//  http://localhost:8080/esms/orderBase/updateAgentId.do?id=1&agentId=2
+			url: "http://localhost:8080/esms/orderBase/updateAgentId.do?",
+			data: 'id=' + $(oBtn).attr('id').substring(3) + '&agentId=' + $(oBtn).attr('class').substring($(oBtn).attr('class').indexOf('cId') + 3),
+			success: function(data) {
+				console.log(data.msg);
+				$(oBtn).parents('li').remove();
 			},
 			error: function() {
 				console.log('错误');

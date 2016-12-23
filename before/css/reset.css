@@ -1,0 +1,51 @@
+/*
+* @Author: a
+* @Date:   2016-05-15 16:40:39
+* @Last Modified by:   a
+* @Last Modified time: 2016-05-15 21:51:48
+*/
+
+/*CSS Document*/
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-size: 14px;
+}
+img {
+	border: none;
+}
+li {
+	list-style: none;
+}
+input, select, textarea {
+	outline: none;
+	border: none;
+	background: none; /*ie 6*/
+}
+textarea {
+	resize: none;
+}
+a {
+	text-decoration: none;
+	color: #656565;
+}
+
+/*清空浮动*/
+.clearfix:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.clearfix {
+	zoom: 1
+}
+
+/*浮动*/
+.fl {
+	float: left
+}
+.fr {
+	float: right
+}
