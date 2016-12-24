@@ -68,11 +68,18 @@ $(document).ready(function() {
 		accVerify.accept(this);
 	})
 
+	// 跳转至个个人中心
+	$('.userId ul li a').on('click', function(event) {
+		event.preventDefault();
+		var way = $(this).attr('way');
+		// 跳转页面通过地址栏获取信息  "?userId=36&userTel=18&way=est"
+		window.open('user.html?userId=' + $('.userId').attr('id').substring(4) + '&userTel=' + $('.userId').find('a').eq(0).text()  + '&way=' + way, '_blank');
+	});
+
 	// 遮罩
 	$('#mask').css('height', $(document.body).height() + 'px');
 	$('#mask').click(function() {
 		$('#mask .modall').hide();
-		// $('.modall').hide();
 	});
 });
 
@@ -217,6 +224,7 @@ var listVerify = {
 					var orderBase = data.data;
 					if (orderBase.length) {
 						var list_box = $('.properties_list');
+						list_box.html('');
 						for (var i = 0; i < orderBase.length; i++) {
 							var oLi = $('<li></li>').attr('id', 'ob'+ orderBase[i].id).appendTo(list_box);
 							var oA = $('<a></a>').attr('href', 'javascript:;').appendTo(oLi);
@@ -236,6 +244,7 @@ var listVerify = {
 							var oStatus = $('<span></span>').addClass('status').appendTo(oBtn);
 							statVerify.stat(orderBase[i].id, orderBase[i].customerId);
 
+							var inc = '';
 							switch (orderBase[i].inc) {
 								case 0:
 									inc = '韵达快递';
@@ -359,7 +368,7 @@ var accVerify = {
 			type: "GET",
 			//  http://localhost:8080/esms/orderBase/updateAgentId.do?id=1&agentId=2
 			url: "http://localhost:8080/esms/orderBase/updateAgentId.do?",
-			data: 'id=' + $(oBtn).attr('id').substring(3) + '&agentId=' + $(oBtn).attr('class').substring($(oBtn).attr('class').indexOf('cId') + 3),
+			data: 'id=' + $(oBtn).attr('id').substring(3) + '&agentId=' + $('.userId').attr('id').substring(4),
 			success: function(data) {
 				console.log(data.msg);
 				$(oBtn).parents('li').remove();
