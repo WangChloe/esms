@@ -58,14 +58,16 @@ $(document).ready(function() {
 	// 查看我发布的订单 -> 取消、确认收货
 	$('.est_list').on('click', '.status-btn', function(event) {
 		event.preventDefault();
-		deleteVerify.delete(this);
-		//finishVerify.finish(this);
+		// deleteVerify.delete(this);
+		if($('.status-btn .status').html() == '完成') {
+			finishVerify.finish(this);
+		}
 	})
 
-	// 查看我接受的订单 -> 确认送货
+	// 查看我接受的订单 -> 取消
 	$('.acc_list').on('click', '.status-btn', function(event) {
 		event.preventDefault();
-		finishVerify.finish(this);
+		deleteVerify.delete(this);
 	})
 
 
@@ -80,8 +82,8 @@ var userEstVerify = {
 	UserEstSuccess: function() {
 		$.ajax({
 			type: "GET",
-			// http://localhost:8080/esms/orderBase/findByCustomerId.do?customerId=1
-			url: "http://localhost:8080/esms/orderBase/findByCustomerId.do?",
+			// http://www.wangchloe.cn:8080/esms/orderBase/findByCustomerId.do?customerId=1
+			url: "http://www.wangchloe.cn:8080/esms/orderBase/findByCustomerId.do?",
 			data: 'customerId=' + $('.userId').attr('id').substring(4),
 			success: function(data) {
 				console.log(data.msg);
@@ -155,8 +157,8 @@ var userAccVerify = {
 	UserAccSuccess: function() {
 		$.ajax({
 			type: "GET",
-			// http://localhost:8080/esms/orderBase/findByAgentId.do?agentId=1
-			url: "http://localhost:8080/esms/orderBase/findByAgentId.do?",
+			// http://www.wangchloe.cn:8080/esms/orderBase/findByAgentId.do?agentId=1
+			url: "http://www.wangchloe.cn:8080/esms/orderBase/findByAgentId.do?",
 			data: 'agentId=' + $('.userId').attr('id').substring(4),
 			success: function(data) {
 				console.log(data.msg);
@@ -182,7 +184,7 @@ var userAccVerify = {
 							var oSs = $('<span></span>').addClass('property_size').html(orderBase[i].sendTime + ':00').appendTo(osTime);
 							var oBtn = $('<a class="status-btn"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span></a>').appendTo(oLs);
 							var oStatus = $('<span></span>').addClass('status').appendTo(oBtn);
-							statVerify.stat(orderBase[i].id, orderBase[i].customerId);
+							statVerify.stat(orderBase[i].id, orderBase[i].customerId, 'acc');
 
 							var inc = '';
 							switch (orderBase[i].inc) {
@@ -224,20 +226,20 @@ var userAccVerify = {
 
 // 功能：显示当前订单状态
 var statVerify = {
-	stat: function(id, cId) {
+	stat: function(id, cId, method) {
 		if (this.check()) {
-			this.StatSuccess(id, cId);
+			this.StatSuccess(id, cId, method);
 		}
 	},
 	check: function() {
 		// TODO：正则检验
 		return true;
 	},
-	StatSuccess: function(id, cId) {
+	StatSuccess: function(id, cId, method) {
 		$.ajax({
 			type: "GET",
-			url: "http://localhost:8080/esms/orderProcess/findByOrderId.do?",
-			//http://localhost:8080/esms/orderProcess/findByOrderId.do?orderId=1
+			url: "http://www.wangchloe.cn:8080/esms/orderProcess/findByOrderId.do?",
+			//http://www.wangchloe.cn:8080/esms/orderProcess/findByOrderId.do?orderId=1
 			data: 'orderId=' + id,
 			success: function(data) {
 				console.log(data.msg);
@@ -253,19 +255,23 @@ var statVerify = {
 							btnIn = '接受';
 							break;
 						case 2:
-							btnIn = '取消';
+							if(method) {
+								btnIn = '取消';
+							} else {
+								btnIn = '完成';
+							}
 							break;
 						case 3:
-							btnIn = '完成';
+							btnIn = '已完成';
 							break;
 						case 4:
-							btnIn = '评价';
+							btnIn = '已完成';
 							break;
 						case 5:
-							btnIn = '已评价';
+							btnIn = '已完成';
 							break;
 						case 6:
-							btnIn = '已过期';
+							btnIn = '已完成';
 							break;
 					}
 					$('#ob' + id).find('.status-btn').attr('id', 'acc' + id).addClass('cId' + cId).find('.status').html(btnIn);
@@ -293,8 +299,8 @@ var deleteVerify = {
 	DeleteSuccess: function(oBtn) {
 		$.ajax({
 			type: "GET",
-			// http://localhost:8080/esms/orderProcess/remove.do?orderId=1
-			url: "http://localhost:8080/esms/orderProcess/remove.do?",
+			// http://www.wangchloe.cn:8080/esms/orderProcess/remove.do?orderId=1
+			url: "http://www.wangchloe.cn:8080/esms/orderProcess/remove.do?",
 			data: 'orderId=' + $(oBtn).attr('id').substring(3),
 			success: function(data) {
 				console.log(data.msg);
@@ -322,8 +328,8 @@ var finishVerify = {
 	FinishSuccess: function(oBtn) {
 		$.ajax({
 			type: "GET",
-			// http://localhost:8080/esms/orderProcess/finish.do?orderId=1
-			url: "http://localhost:8080/esms/orderProcess/finish.do?",
+			// http://www.wangchloe.cn:8080/esms/orderProcess/finish.do?orderId=1
+			url: "http://www.wangchloe.cn:8080/esms/orderProcess/finish.do?",
 			data: 'orderId=' + $(oBtn).attr('id').substring(3),
 			success: function(data) {
 				console.log(data.msg);

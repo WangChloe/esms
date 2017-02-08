@@ -48,6 +48,8 @@ $(document).ready(function() {
 		$('#mask').show();
 		$('.est').show(100);
 		$('.log, .reg').hide();
+		var userId = $('.userId').attr('id').substring(4);
+		$('#orderBaseForm orderBase-Cid').val(userId);
 	});
 
 	$('.mod-login').click(function() {
@@ -79,7 +81,8 @@ $(document).ready(function() {
 	// 遮罩
 	$('#mask').css('height', $(document.body).height() + 'px');
 	$('#mask').click(function() {
-		$('#mask .modall').hide();
+		$('.modall').hide();
+		$('#mask').hide();
 	});
 });
 
@@ -107,8 +110,8 @@ var loginVerify = {
 	LoginSuccess: function() {
 		$.ajax({
 			type: "GET",
-			// url: "http://localhost:8080/esms/user/login.do?user.mobile=" + $("#user-mobile").val() + "&user.pwd=" + $("#user-pwd").val(),
-			url: "http://localhost:8080/esms/user/login.do?",
+			// url: "http://www.wangchloe.cn:8080/esms/user/login.do?user.mobile=" + $("#user-mobile").val() + "&user.pwd=" + $("#user-pwd").val(),
+			url: "http://www.wangchloe.cn:8080/esms/user/login.do?",
 			data: 'user.mobile=' + $("#user-mobile").val() + '&user.pwd=' + $("#user-pwd").val() + '',
 			success: function(data) {
 				console.log(data.msg);
@@ -150,7 +153,7 @@ var registerVerify = {
 	RegisterSuccess: function() {
 		$.ajax({
 			type: "GET",
-			url: "http://localhost:8080/esms/user/register.do?",
+			url: "http://www.wangchloe.cn:8080/esms/user/register.do?",
 			// localhost:8080/esms/user/register.do?user.mobile=111&user.name=aaa&user.pwd=3 &user.dorm=aaa&user.user_no=111
 			data: 'user.mobile=' + $("#reg-mobile").val() + '&user.pwd=' + $("#reg-pwd").val() +
 				'&user.userNo=' + $("#reg-userNo").val() + '&user.name=' + $("#reg-name").val() +
@@ -184,7 +187,7 @@ var estVerify = {
 	EstSuccess: function() {
 		$.ajax({
 			type: "GET",
-			url: "http://localhost:8080/esms/orderBase/establish.do?",
+			url: "http://www.wangchloe.cn:8080/esms/orderBase/establish.do?",
 			//localhost:8080/esms/orderBase/establish.do?orderBase.customerId=1& ...
 			//这个地方ajax提交数据，你这样拼接是不行的， 你的拼接只适合直接加在url后面,
 			//post请求格式需要{customerId:1}形式，另外form表单提交方式如下：orderBaseForm为表单id
@@ -217,7 +220,7 @@ var listVerify = {
 	ListSuccess: function() {
 		$.ajax({
 			type: "GET",
-			url: "http://localhost:8080/esms/orderBase/findByEstablish.do",
+			url: "http://www.wangchloe.cn:8080/esms/orderBase/findByEstablish.do",
 			success: function(data) {
 				console.log(data.msg);
 				if (!parseInt(data.code)) {
@@ -295,8 +298,8 @@ var statVerify = {
 	StatSuccess: function(id, cId) {
 		$.ajax({
 			type: "GET",
-			url: "http://localhost:8080/esms/orderProcess/findByOrderId.do?",
-			//http://localhost:8080/esms/orderProcess/findByOrderId.do?orderId=1
+			url: "http://www.wangchloe.cn:8080/esms/orderProcess/findByOrderId.do?",
+			//http://www.wangchloe.cn:8080/esms/orderProcess/findByOrderId.do?orderId=1
 			data: 'orderId=' + id,
 			success: function(data) {
 				console.log(data.msg);
@@ -318,13 +321,13 @@ var statVerify = {
 							btnIn = '完成';
 							break;
 						case 4:
-							btnIn = '评价';
+							btnIn = '已完成';
 							break;
 						case 5:
-							btnIn = '已评价';
+							btnIn = '已完成';
 							break;
 						case 6:
-							btnIn = '已过期';
+							btnIn = '已完成';
 							break;
 					}
 					$('#ob' + id).find('.status-btn').attr('id', 'acc' + id).addClass('cId' + cId).find('.status').html(btnIn);
@@ -366,8 +369,8 @@ var accVerify = {
 	AcceptSuccess: function(oBtn) {
 		$.ajax({
 			type: "GET",
-			//  http://localhost:8080/esms/orderBase/updateAgentId.do?id=1&agentId=2
-			url: "http://localhost:8080/esms/orderBase/updateAgentId.do?",
+			//  http://www.wangchloe.cn:8080/esms/orderBase/updateAgentId.do?id=1&agentId=2
+			url: "http://www.wangchloe.cn:8080/esms/orderBase/updateAgentId.do?",
 			data: 'id=' + $(oBtn).attr('id').substring(3) + '&agentId=' + $('.userId').attr('id').substring(4),
 			success: function(data) {
 				console.log(data.msg);
