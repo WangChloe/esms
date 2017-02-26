@@ -342,3 +342,35 @@ var finishVerify = {
 		});
 	}
 }
+
+// 懒加载
+window.onscroll = function() {
+	var aImg = document.querySelectorAll('.properties_list img');
+	var scrollT = document.documentElement.scrollTop || document.body.scrollTop;
+	var clientH = document.documentElement.clientHeight;
+	var time = 0;
+
+	for (var i = 0; i < aImg.length; i++) {
+		var oImgT = getPos(aImg[i]).top;
+		if(scrollT + clientH >= oImgT) {
+			(function(index) {
+				setTimeout(function(){
+					aImg[index].setAttribute('src', aImg[index].getAttribute('_src'));
+				}, time);
+			})(i);
+			time += 50;
+		}
+	}
+
+}
+
+function getPos(obj) {
+	var l = 0;
+	var t = 0;
+	while(obj) {
+		l += obj.offsetLeft;
+		t += obj.offsetTop;
+		obj = obj.offsetParent;
+	}
+	return {left:l, top:t};
+}

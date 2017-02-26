@@ -1,5 +1,11 @@
 $(document).ready(function() {
 
+	var cN = 'um';
+	var cP = 'up';
+	if ($.cookie(cN)) {
+		loginVerify.LoginSuccess($.cookie(cN), $.cookie(cP));
+	}
+
 	// 轮播图
 	$('.carousel').carousel({
 		interval: 3000
@@ -19,7 +25,7 @@ $(document).ready(function() {
 		$(this).find('ul').show();
 	}).on('mouseover', '.userId ul', function(event) {
 		event.preventDefault();
-		if(!$(this).parent().hasClass('over')) {
+		if (!$(this).parent().hasClass('over')) {
 			$(this).parent().addClass('over');
 		}
 	}).on('mouseout', '.userId ul', function(event) {
@@ -49,7 +55,12 @@ $(document).ready(function() {
 		$('.est').show(100);
 		$('.log, .reg').hide();
 		var userId = $('.userId').attr('id').substring(4);
-		$('#orderBaseForm orderBase-Cid').val(userId);
+		$('#orderBase-Cid').val(userId);
+	});
+
+	$('.accept').on('click', function(event) {
+		slideTo(800);
+		event.preventDefault();
 	});
 
 	$('.mod-login').click(function() {
@@ -75,7 +86,7 @@ $(document).ready(function() {
 		event.preventDefault();
 		var way = $(this).attr('way');
 		// 跳转页面通过地址栏获取信息  "?userId=36&userTel=18&way=est"
-		window.open('user.html?userId=' + $('.userId').attr('id').substring(4) + '&userTel=' + $('.userId').find('a').eq(0).text()  + '&way=' + way, '_blank');
+		window.open('user.html?userId=' + $('.userId').attr('id').substring(4) + '&userTel=' + $('.userId').find('a').eq(0).text() + '&way=' + way, '_blank');
 	});
 
 	// 遮罩
@@ -89,37 +100,45 @@ $(document).ready(function() {
 // 功能：登录
 var loginVerify = {
 	login: function() {
-		if (this.check()) {
-			this.LoginSuccess();
+		var um = $("#user-mobile").val();
+		var up = $("#user-pwd").val();
+		if (this.check(um, up)) {
+			this.LoginSuccess(um, up);
 		}
 	},
-	check: function() {
+	check: function(um, up) {
 		//TODO：正则检验
-		if ($("#user-mobile").val() == "") {
+		if (um == "") {
 			alert("手机号不能为空");
 			$("#user-mobile").focus();
 			return false;
 		}
-		if ($("#user-pwd").val() == "") {
+		if (up == "") {
 			alert("密码不能为空")
 			$("#user-pwd").focus();
 			return false;
 		}
 		return true;
 	},
-	LoginSuccess: function() {
+	LoginSuccess: function(um, up) {
 		$.ajax({
 			type: "GET",
 			// url: "http://www.wangchloe.cn:8080/esms/user/login.do?user.mobile=" + $("#user-mobile").val() + "&user.pwd=" + $("#user-pwd").val(),
 			url: "http://www.wangchloe.cn:8080/esms/user/login.do?",
-			data: 'user.mobile=' + $("#user-mobile").val() + '&user.pwd=' + $("#user-pwd").val() + '',
+			data: 'user.mobile=' + um + '&user.pwd=' + up + '',
 			success: function(data) {
 				console.log(data.msg);
+				// $.cookie('the_cookie', 'the_value', { expires: 7, path: '/' });
+				$.cookie('um', um, {
+					path: '/'
+				});
+				$.cookie('up', up, {
+					path: '/'
+				});
 				var userId = data.data.id;
-				var mobile = $("#user-mobile").val();
 				$('.log, #mask').hide();
 				$('nav').find('a.login_btn').remove().end();
-				$('.userId').css('display', 'block').attr('id', 'user' + userId).find('a').eq(0).html('<a href="javascript:;"><i class="icon-user"></i>' + mobile + '</a>');
+				$('.userId').css('display', 'block').attr('id', 'user' + userId).find('a').eq(0).html('<a href="javascript:;"><i class="icon-user"></i>' + um + '</a>');
 				// $('<li></li>').addClass('userId').attr('id', 'user' + userId).append('<a href="javascript:;"><i class="icon-user"></i>' + mobile + '</a><ul><li>查看我发布的订单</li><li>查看我接受的订单</li></ul>').appendTo($('nav ul'));
 			},
 			error: function() {
@@ -189,14 +208,12 @@ var estVerify = {
 			type: "GET",
 			url: "http://www.wangchloe.cn:8080/esms/orderBase/establish.do?",
 			//localhost:8080/esms/orderBase/establish.do?orderBase.customerId=1& ...
-			//这个地方ajax提交数据，你这样拼接是不行的， 你的拼接只适合直接加在url后面,
-			//post请求格式需要{customerId:1}形式，另外form表单提交方式如下：orderBaseForm为表单id
-			data:$('#orderBaseForm').serialize(),
-//			data: 'orderBase.customerId=' + parseFloat($("#orderBase-Cid").val()) + '&orderBase.inc=' + $("#orderBase-inc").val() +
-//				'&orderBase.typ=' + $("#orderBase-typ").val() + '&orderBase.price=' + $("#orderBase-price").val() +
-//				'&orderBase.notes=' + $("#orderBase-notes").val() +
-//				'&orderBase.tTime=' + $("#orderBase-tTime").val() + '&orderBase.sTime=' + $("#orderBase-sTime").val() +
-//				'',
+			data: $('#orderBaseForm').serialize(),
+			//			data: 'orderBase.customerId=' + parseFloat($("#orderBase-Cid").val()) + '&orderBase.inc=' + $("#orderBase-inc").val() +
+			//				'&orderBase.typ=' + $("#orderBase-typ").val() + '&orderBase.price=' + $("#orderBase-price").val() +
+			//				'&orderBase.notes=' + $("#orderBase-notes").val() +
+			//				'&orderBase.tTime=' + $("#orderBase-tTime").val() + '&orderBase.sTime=' + $("#orderBase-sTime").val() +
+			//				'',
 			success: function(data) {
 				console.log(data.msg);
 				if (!parseInt(data.code)) {
@@ -229,9 +246,9 @@ var listVerify = {
 						var list_box = $('.properties_list');
 						list_box.html('');
 						for (var i = 0; i < orderBase.length; i++) {
-							var oLi = $('<li></li>').attr('id', 'ob'+ orderBase[i].id).appendTo(list_box);
+							var oLi = $('<li></li>').attr('id', 'ob' + orderBase[i].id).appendTo(list_box);
 							var oA = $('<a></a>').attr('href', 'javascript:;').appendTo(oLi);
-							var oImg = $('<img/>').attr('src', 'img/property_' + (i % 3 + 1) + '.jpg').appendTo(oA);
+							var oImg = $('<img/>').attr('_src', 'img/property_' + (i % 3 + 1) + '.jpg').appendTo(oA);
 							var oPrice = $('<span></span>').addClass('price').html('RMB ' + orderBase[i].price).appendTo(oLi);
 
 							var oDetail = $('<div></div>').addClass('property_details').appendTo(oLi);
@@ -310,7 +327,7 @@ var statVerify = {
 					var stat = data.data.stat;
 					console.log(stat);
 					var btnIn = '';
-					switch(stat) {
+					switch (stat) {
 						case 1:
 							btnIn = '接受';
 							break;
@@ -350,8 +367,9 @@ var accVerify = {
 	check: function(oBtn) {
 		//TODO：正则检验
 		// user36    status-btn cId36
-		if(!$('.userId').find('a').eq(0).text()){
+		if (!$('.userId').find('a').eq(0).text()) {
 			console.log('用户还未登录');
+			slideTo();
 			$('#mask').show();
 			$('.log').show(100);
 			$('.reg, .est').hide();
@@ -360,7 +378,7 @@ var accVerify = {
 			var uId = $('.userId').attr('id').substring(4);
 		}
 		var cId = $(oBtn).attr('class').substring($(oBtn).attr('class').indexOf('cId') + 3);
-		if( uId== cId) {
+		if (uId == cId) {
 			alert('不能接受自己发布的订单');
 			return false;
 		}
@@ -381,4 +399,64 @@ var accVerify = {
 			}
 		});
 	}
+}
+
+// 懒加载
+window.onscroll = function() {
+	var aImg = document.querySelectorAll('.properties_list img');
+	var scrollT = document.documentElement.scrollTop || document.body.scrollTop;
+	var clientH = document.documentElement.clientHeight;
+	var time = 0;
+
+	for (var i = 0; i < aImg.length; i++) {
+		var oImgT = getPos(aImg[i]).top;
+		if (scrollT + clientH >= oImgT) {
+			(function(index) {
+				setTimeout(function() {
+					aImg[index].setAttribute('src', aImg[index].getAttribute('_src'));
+				}, time);
+			})(i);
+			time += 50;
+		}
+	}
+
+	$('#mask').css('height', $(document.body).height() + 'px');
+
+}
+
+var timer;
+
+function slideTo(dis) {
+	var scrollT = document.documentElement.scrollTop || document.body.scrollTop;
+	dis = dis || (-scrollT);
+	clearInterval(timer);
+	var count = Math.floor(1000 / 30);
+	// var dis = 800;
+	var n = 0;
+	timer = setInterval(function() {
+		bSin = false;
+		n++;
+		var a = 1 - n / count;
+		var cur = scrollT + dis * (1 - Math.pow(a, 4));
+		document.documentElement.scrollTop = document.body.scrollTop = cur;
+		if (n == count) {
+			clearInterval(timer);
+		}
+	}, 30);
+
+}
+
+
+function getPos(obj) {
+	var l = 0;
+	var t = 0;
+	while (obj) {
+		l += obj.offsetLeft;
+		t += obj.offsetTop;
+		obj = obj.offsetParent;
+	}
+	return {
+		left: l,
+		top: t
+	};
 }
